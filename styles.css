@@ -1,3 +1,9 @@
+.game {
+    overflow: hidden;
+    max-width: 600px;
+    max-height: 450px;
+    position: relative;
+}
 
 .background    { 
     background: rgb(52, 166, 251);
