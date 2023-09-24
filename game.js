@@ -185,3 +185,11 @@ function drawActors(actors) {
   }));
 }
 
+// to make the display show a given state
+DOMDisplay.prototype.syncState = function(state) {
+  if (this.actorLayer) this.actorLayer.remove();
+  this.actorLayer = drawActors(state.actors);
+  this.dom.appendChild(this.actorLayer);
+  this.dom.className = `game ${state.status}`;
+  this.scrollPlayerIntoView(state);
+};
