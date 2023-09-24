@@ -171,3 +171,17 @@ function drawGrid(level) {
         ...row.map(type => elt("td", {class: type})))
   ));
 }
+
+// draw each actor by creating a DOM element for it and setting 
+// that element’s position and size based on the actor’s properties
+function drawActors(actors) {
+  return elt("div", {}, ...actors.map(actor => {
+    let rect = elt("div", {class: `actor ${actor.type}`});
+    rect.style.width = `${actor.size.x * scale}px`;
+    rect.style.height = `${actor.size.y * scale}px`;
+    rect.style.left = `${actor.pos.x * scale}px`;
+    rect.style.top = `${actor.pos.y * scale}px`;
+    return rect;
+  }));
+}
+
