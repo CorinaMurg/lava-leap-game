@@ -121,3 +121,15 @@ class Coin {
 }
 
 Coin.prototype.size = new Vec(0.6, 0.6);
+
+
+// the levelChars object maps plan characters to either background grid types or actor classes
+const levelChars = {
+  ".": "empty", "#": "wall", "+": "lava",
+  "@": Player, "o": Coin,
+  "=": Lava, "|": Lava, "v": Lava
+};
+
+// create a Level instance
+let simpleLevel = new Level(simpleLevelPlan);
+console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
