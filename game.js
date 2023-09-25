@@ -297,3 +297,16 @@ Lava.prototype.update = function(time, state) {
     return new Lava(this.pos, this.speed.times(-1));
   }
 };
+
+
+// Coins use their update method to wobble. 
+// They ignore collisions with the grid since they are simply wobbling around inside of their own square.
+const wobbleSpeed = 8, wobbleDist = 0.07;
+
+Coin.prototype.update = function(time) {
+  let wobble = this.wobble + time * wobbleSpeed;
+  let wobblePos = Math.sin(wobble) * wobbleDist;
+  return new Coin(this.basePos.plus(new Vec(0, wobblePos)),
+                  this.basePos, wobble);
+};
+
