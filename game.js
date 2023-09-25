@@ -263,7 +263,7 @@ State.prototype.update = function(time, keys) {
   return newState;
 };
 
-// takes two actor objects and returns true when they touc
+// takes two actor objects and returns true when they touch
 // which is the case when they overlap both along the x-axis and along the y-axis.
 function overlap(actor1, actor2) {
   return actor1.pos.x + actor1.size.x > actor2.pos.x &&
@@ -271,3 +271,17 @@ function overlap(actor1, actor2) {
          actor1.pos.y + actor1.size.y > actor2.pos.y &&
          actor1.pos.y < actor2.pos.y + actor2.size.y;
 }
+
+
+// Touching a lava actor sets the game status to "lost"
+Lava.prototype.collide = function(state) {
+  return new State(state.level, state.actors, "lost");
+};
+
+// Coins vanish when you touch them and set the status to "won" when they are the last coin of the level.
+Coin.prototype.collide = function(state) {
+  let filtered = state.actors.filter(a => a != this);
+  let status = state.status;
+  if (!filtered.some(a => a.type == "coin")) status = "won";
+  return new State(state.level, filtered, status);
+};
