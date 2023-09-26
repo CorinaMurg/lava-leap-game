@@ -408,6 +408,7 @@ async function runGame(plans, Display) {
   }
   document.getElementById('win-message').style.display = 'block'; 
   document.getElementById('restart-button').style.display = 'block';
+  document.getElementById('title-container').style.display = 'none';
 }
 
 function restartGame() {
