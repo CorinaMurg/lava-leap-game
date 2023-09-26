@@ -338,3 +338,19 @@ Player.prototype.update = function(time, state, keys) {
   }
   return new Player(pos, new Vec(xSpeed, ySpeed));
 };
+
+
+// a function that expects a time difference as an argument and draws a single frame. 
+// When the frame function returns the value false, the animation stops.
+function runAnimation(frameFunc) {
+  let lastTime = null;
+  function frame(time) {
+    if (lastTime != null) {
+      let timeStep = Math.min(time - lastTime, 100) / 1000;
+      if (frameFunc(timeStep) === false) return;
+    }
+    lastTime = time;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
