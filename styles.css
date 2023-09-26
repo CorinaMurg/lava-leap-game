@@ -9,8 +9,8 @@
 
 .game {
     overflow: hidden;
-    max-width: 600px;
-    max-height: 450px;
+    max-width: 40rem;
+    max-height: 28rem;
     position: relative;
     margin-inline: auto;
 }
@@ -51,6 +51,31 @@
 
 .won .player {
     box-shadow: -4px -7px 8px var(--clr-white), 4px -7px 8px var(--clr-white);
+}
+
+.title-container {
+    max-width: 40rem;
+    background-color: var(--clr-red-lava);
+    margin-inline: auto;
+    padding: 1px;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--clr-gray-player);
+    margin-block: 2px;
+    
+}
+
+.title-container p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--clr-white );
+    margin-block: 2px;
+    
 }
 
 #win-message {
