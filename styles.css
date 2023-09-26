@@ -1,3 +1,12 @@
+:root {
+    --clr-blue: rgb(52, 166, 251);
+    --clr-red-lava: rgb(255, 100, 100);
+    --clr-red-lost: rgb(160, 64, 64);
+    --clr-gray-player: rgb(64, 64, 64);
+    --clr-white: white;
+    --clr-yellow: rgb(241, 229, 89);
+}
+
 .game {
     overflow: hidden;
     max-width: 600px;
@@ -7,7 +16,7 @@
 }
 
 .background    { 
-    background: rgb(52, 166, 251);
+    background: var(--clr-blue);
     table-layout: fixed;
     border-spacing: 0;              
 }
@@ -17,11 +26,11 @@
 }
 
 .lava { 
-    background: rgb(255, 100, 100); 
+    background: var(--clr-red-lava); 
 }
 
 .wall { 
-    background: white;              
+    background: var(--clr-white);              
 }
 
 .actor { 
@@ -29,29 +38,30 @@
 }
 
 .coin { 
-    background: rgb(241, 229, 89); 
+    background: var(--clr-yellow); 
 }
 
 .player { 
-    background: rgb(64, 64, 64);   
+    background: var(--clr-gray-player);   
 }
 
 .lost .player {
-    background: rgb(160, 64, 64);
+    background: var(--clr-red-lost);
 }
 
 .won .player {
-    box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+    box-shadow: -4px -7px 8px var(--clr-white), 4px -7px 8px var(--clr-white);
 }
 
 #win-message {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: white;
-    border: 2px solid black;
-    z-index: 1000;
+    font-size: 3rem;
+    color: var(--clr-red-lava);
 }
+
+
   
