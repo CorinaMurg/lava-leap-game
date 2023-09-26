@@ -380,3 +380,15 @@ function runLevel(level, Display) {
     });
   });
 }
+
+// A game is a sequence of levels. Whenever the player dies, the current level is restarted. 
+// When a level is completed, we move on to the next level. This can be expressed by the following function
+// which takes an array of level plans (strings) and a display constructor
+async function runGame(plans, Display) {
+  for (let level = 0; level < plans.length;) {
+    let status = await runLevel(new Level(plans[level]),
+                                Display);
+    if (status == "won") level++;
+  }
+  console.log("You've won!");
+}
