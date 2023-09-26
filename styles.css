@@ -7,6 +7,10 @@
     --clr-yellow: rgb(241, 229, 89);
 }
 
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
 .game {
     overflow: hidden;
     max-width: 40rem;
@@ -71,7 +75,7 @@ h1 {
 
 .title-container p {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--clr-white );
     margin-block: 2px;
