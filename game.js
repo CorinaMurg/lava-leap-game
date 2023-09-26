@@ -339,6 +339,21 @@ Player.prototype.update = function(time, state, keys) {
   return new Player(pos, new Vec(xSpeed, ySpeed));
 };
 
+function trackKeys(keys) {
+  let down = Object.create(null);
+  function track(event) {
+    if (keys.includes(event.key)) {
+      down[event.key] = event.type == "keydown";
+      event.preventDefault();
+    }
+  }
+  window.addEventListener("keydown", track);
+  window.addEventListener("keyup", track);
+  return down;
+}
+
+var arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+
 
 // a function that expects a time difference as an argument and draws a single frame. 
 // When the frame function returns the value false, the animation stops.
