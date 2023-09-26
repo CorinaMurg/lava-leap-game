@@ -382,7 +382,7 @@ function runLevel(level, Display) {
     runAnimation(time => {
       state = state.update(time, arrowKeys);
       display.syncState(state);
-      if (state.status == "playing") {
+      if (state.status === "playing") {
         return true;
       } else if (ending > 0) {
         ending -= time;
@@ -396,6 +396,7 @@ function runLevel(level, Display) {
   });
 }
 
+
 // A game is a sequence of levels. Whenever the player dies, the current level is restarted. 
 // When a level is completed, we move on to the next level. This can be expressed by the following function
 // which takes an array of level plans (strings) and a display constructor
@@ -405,5 +406,5 @@ async function runGame(plans, Display) {
                                 Display);
     if (status == "won") level++;
   }
-  console.log("You've won!");
+  document.getElementById('win-message').style.display = 'block'; 
 }
