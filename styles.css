@@ -3,6 +3,7 @@
     max-width: 600px;
     max-height: 450px;
     position: relative;
+    margin-inline: auto;
 }
 
 .background    { 
