@@ -56,11 +56,11 @@
 #win-message {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-    color: var(--clr-red-lava);
+    color: var(--clr-red-lost);
 }
 
 #restart-button {
@@ -69,8 +69,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 5px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
     background-color: var(--clr-blue);
+    border: 3px solid var(--clr-blue);
+    border-radius: 3px;
 }
 
   

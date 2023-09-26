@@ -417,3 +417,4 @@ function restartGame() {
 }
 
 document.getElementById('restart-button').addEventListener('click', restartGame);
+
