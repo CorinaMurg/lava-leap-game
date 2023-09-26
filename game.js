@@ -414,6 +414,7 @@ async function runGame(plans, Display) {
 function restartGame() {
   document.getElementById('win-message').style.display = 'none'; 
   document.getElementById('restart-button').style.display = 'none'; 
+  document.getElementById('title-container').style.display = 'block';
   runGame(GAME_LEVELS, DOMDisplay);
 }
 
