@@ -1,25 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lava Leap</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+      <div class="title-container">
+          <h1>Lava Leap</h1>
+          <p>Capture the gold. Elude the flames.</p>
+      </div>
+      <div id="win-message">
+          Congratulations! You won!
+      </div>
+      <button id="restart-button">Restart Game</button>
+
+      <script src="game.js"></script>
+      <script src="levels.js"></script>
+      <script>
+          runGame(GAME_LEVELS, DOMDisplay);
+      </script>
+  </body>
+
+</html>
 
 
-<link rel="stylesheet" href="styles.css">
 
-<body>
-  <div class="title-container">
-    <h1>Lava Leap</h1>
-    <p>Capture the gold. Elude the flames.</p>
-  </div>
-  
-  <div id="win-message">
-    Congratulations! You won!
-  </div>
-  <button id="restart-button">Restart Game</button>
 
-  <script src="game.js"></script>
-  <script src="levels.js"></script>
-  <script>
-    runGame(GAME_LEVELS, DOMDisplay);
-  </script>
-</body>
+
+
+
+
+
 
 
 
