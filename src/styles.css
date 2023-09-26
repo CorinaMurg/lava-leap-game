@@ -59,7 +59,7 @@ body {
 
 .title-container {
     max-width: 40rem;
-    background-color: var(--clr-red-lava);
+    background-color: var(--clr-gray-player);
     margin-inline: auto;
     padding: 1px;
     margin-bottom: 2rem;
@@ -68,7 +68,7 @@ body {
 h1 {
     text-align: center;
     font-size: 2rem;
-    color: var(--clr-gray-player);
+    color: var(--clr-red-lava);
     margin-block: 2px;
     
 }
