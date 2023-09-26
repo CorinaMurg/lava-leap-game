@@ -354,3 +354,29 @@ function runAnimation(frameFunc) {
   }
   requestAnimationFrame(frame);
 }
+
+// The runLevel function takes a Level object and a display constructor and returns a promise. 
+// It displays the level (in document.body) and lets the user play through it. When the level is 
+// finished (lost or won), runLevel waits one more second (to let the user see what happens) 
+// and then clears the display, stops the animation, and resolves the promise to the game’s end status
+function runLevel(level, Display) {
+  let display = new Display(document.body, level);
+  let state = State.start(level);
+  let ending = 1;
+  return new Promise(resolve => {
+    runAnimation(time => {
+      state = state.update(time, arrowKeys);
+      display.syncState(state);
+      if (state.status == "playing") {
+        return true;
+      } else if (ending > 0) {
+        ending -= time;
+        return true;
+      } else {
+        display.clear();
+        resolve(state.status);
+        return false;
+      }
+    });
+  });
+}
