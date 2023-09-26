@@ -407,4 +407,13 @@ async function runGame(plans, Display) {
     if (status == "won") level++;
   }
   document.getElementById('win-message').style.display = 'block'; 
+  document.getElementById('restart-button').style.display = 'block';
 }
+
+function restartGame() {
+  document.getElementById('win-message').style.display = 'none'; 
+  document.getElementById('restart-button').style.display = 'none'; 
+  runGame(GAME_LEVELS, DOMDisplay);
+}
+
+document.getElementById('restart-button').addEventListener('click', restartGame);
