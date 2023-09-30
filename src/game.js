@@ -110,10 +110,6 @@ const levelChars = {
   "=": Lava, "|": Lava, "v": Lava
 };
 
-let simpleLevel = new Level(simpleLevelPlan);
-console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
-
-
 
 function elt(name, attrs, ...children) {
   let dom = document.createElement(name);
@@ -352,32 +348,43 @@ function runLevel(level, Display) {
   });
 }
 
+function parseQuery(queryString) {
+  var query = {};
+  var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split('=');
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+  }
+  return query;
+}
+
+var userLives = parseQuery(window.location.search);
+var lives = Number(userLives.lives) || 3; // 3 as the default number of lives
+
 let endMessage = document.getElementById('end-message');
 let restartButton = document.getElementById('restart-button');
 let title = document.getElementById('title-container');
 
 async function runGame(plans, Display) {
-  let lives = 6;
-  let livesContainer = document.getElementById('lives-container'); 
-  
-  
+  let livesContainer = document.getElementById('lives-container');
+
   const updateLivesDisplay = () => {
-    livesContainer.textContent = `Lives: ${lives}`; 
+    livesContainer.textContent = `Lives: ${lives}`;
   };
-  
+
+  updateLivesDisplay(); 
+
   for (let level = 0; level < plans.length && lives > 0;) {
-    updateLivesDisplay(); 
-  
     let status = await runLevel(new Level(plans[level]), Display);
-  
+
     if (status == "lost") {
       lives--;
-      updateLivesDisplay(); 
+      updateLivesDisplay();
     }
     if (status == "won") level++;
   }
 
-  endMessage.style.display = 'block'; 
+  endMessage.style.display = 'block';
   restartButton.style.display = 'block';
   title.style.display = 'none';
 
@@ -386,7 +393,7 @@ async function runGame(plans, Display) {
   } else {
     endMessage.textContent = "Congratulations! You won!";
   }
-  
+
   restartButton.focus();
 }
 
