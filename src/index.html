@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Lava Leap</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="styles.css">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lava Leap</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
   <body>
-      <div class="title-container" id="title-container">
-          <h1>Lava Leap</h1>
-          <p>Capture the gold. Elude the flames.</p>
-      </div>
-      <div id="win-message">
-          Congratulations! You won!
-      </div>
-      <button id="restart-button">Restart Game</button>
+        <div class="title-container" id="title-container">
+            <h1>Lava Leap</h1>
+            <p>Capture the gold. Elude the flames.</p>
+        </div>
+        <div id="lives-container">Lives: 3</div>
 
-      <script src="game.js"></script>
-      <script src="levels.js"></script>
-      <script>
-          runGame(GAME_LEVELS, DOMDisplay);
-      </script>
+        <div id="end-message"></div>
+        <button id="restart-button">Restart Game</button>
+
+        <script src="game.js"></script>
+        <script src="levels.js"></script>
+        <script>
+            runGame(GAME_LEVELS, DOMDisplay);
+        </script>
   </body>
 
 </html>

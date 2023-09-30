@@ -396,27 +396,50 @@ function runLevel(level, Display) {
   });
 }
 
+let endMessage = document.getElementById('end-message');
+let restartButton = document.getElementById('restart-button');
+let title = document.getElementById('title-container');
 
-// A game is a sequence of levels. Whenever the player dies, the current level is restarted. 
-// When a level is completed, we move on to the next level. This can be expressed by the following function
-// which takes an array of level plans (strings) and a display constructor
 async function runGame(plans, Display) {
-  for (let level = 0; level < plans.length;) {
-    let status = await runLevel(new Level(plans[level]),
-                                Display);
+  let lives = 6;
+  let livesContainer = document.getElementById('lives-container'); 
+  
+  
+  const updateLivesDisplay = () => {
+    livesContainer.textContent = `Lives: ${lives}`; 
+  };
+  
+  for (let level = 0; level < plans.length && lives > 0;) {
+    updateLivesDisplay(); 
+  
+    let status = await runLevel(new Level(plans[level]), Display);
+  
+    if (status == "lost") {
+      lives--;
+      updateLivesDisplay(); 
+    }
     if (status == "won") level++;
   }
-  document.getElementById('win-message').style.display = 'block'; 
-  document.getElementById('restart-button').style.display = 'block';
-  document.getElementById('title-container').style.display = 'none';
+
+  endMessage.style.display = 'block'; 
+  restartButton.style.display = 'block';
+  title.style.display = 'none';
+
+  if (lives === 0) {
+    endMessage.textContent = "Sorry, you lost all your lives!";
+  } else {
+    endMessage.textContent = "Congratulations! You won!";
+  }
+  
+  restartButton.focus();
 }
 
 function restartGame() {
-  document.getElementById('win-message').style.display = 'none'; 
-  document.getElementById('restart-button').style.display = 'none'; 
-  document.getElementById('title-container').style.display = 'block';
+  endMessage.style.display = 'none'; 
+  restartButton.style.display = 'none'; 
+  title.style.display = 'block';
   runGame(GAME_LEVELS, DOMDisplay);
 }
 
-document.getElementById('restart-button').addEventListener('click', restartGame);
+restartButton.addEventListener('click', restartGame);
 
