@@ -39,8 +39,8 @@ function runLevel(level, Display) {
     });
 }
 
-var userLives = parseQuery(window.location.search);
-var lives = Number(userLives.lives) || 3; // 3 as the default number of lives
+let userLives = parseQuery(window.location.search);
+let lives = Number(userLives.lives) || 3; // 3 as the default number of lives
 
 async function runGame(plans, Display) {
     const updateLivesDisplay = () => {
@@ -52,11 +52,11 @@ async function runGame(plans, Display) {
     for (let level = 0; level < plans.length && lives > 0;) {
         let status = await runLevel(new Level(plans[level]), Display);
 
-        if (status == "lost") {
+        if (status === "lost") {
         lives--;
         updateLivesDisplay();
         }
-        if (status == "won") level++;
+        if (status === "won") level++;
     }
 
     dom.endMessage.style.display = 'block';
@@ -72,14 +72,16 @@ async function runGame(plans, Display) {
     dom.restartButton.focus();
 }
 
+
 function restartGame() {
+    userLives = parseQuery(window.location.search);
+    lives = Number(userLives.lives) || 3;
+
     dom.endMessage.style.display = 'none'; 
     dom.restartButton.style.display = 'none'; 
     dom.title.style.display = 'block';
     runGame(GAME_LEVELS, DOMDisplay);
 }
-
-// dom.restartButton.addEventListener('click', restartGame);
 
 export { runAnimation, runLevel, runGame, restartGame };
 

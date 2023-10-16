@@ -22,7 +22,7 @@ function trackKeys(keys) {
     return down;
   }
   
-var arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
 
 

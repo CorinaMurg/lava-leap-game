@@ -1,5 +1,5 @@
 
-var Level = class Level {
+class Level {
     constructor(plan) {
         let rows = plan.trim().split("\n").map(l => [...l]);
         this.height = rows.length;
@@ -19,7 +19,7 @@ var Level = class Level {
 }
   
   
-var State = class State {
+class State {
     constructor(level, actors, status) {
         this.level = level;
         this.actors = actors;
