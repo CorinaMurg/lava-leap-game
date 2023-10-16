@@ -1,7 +1,6 @@
 import { Level, State } from './core.js';
 import { DOMDisplay } from './dom.js';
-import { parseQuery } from './utils.js';
-import { arrowKeys } from './utils.js';
+import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 
@@ -80,7 +79,7 @@ function restartGame() {
     runGame(GAME_LEVELS, DOMDisplay);
 }
 
-dom.restartButton.addEventListener('click', restartGame);
+// dom.restartButton.addEventListener('click', restartGame);
 
 export { runAnimation, runLevel, runGame, restartGame };
 

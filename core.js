@@ -1,4 +1,3 @@
-import { levelChars } from "./utils.js";
 
 var Level = class Level {
     constructor(plan) {
@@ -205,5 +204,12 @@ Player.prototype.update = function(time, state, keys) {
     }
     return new Player(pos, new Vector(xSpeed, ySpeed));
 };
+
+const levelChars = {
+    ".": "empty", "#": "wall", "+": "lava",
+    "@": Player, "o": Coin,
+    "=": Lava, "|": Lava, "v": Lava
+};
+
 
 export { Vector, Level, State, Player, Lava, Coin };

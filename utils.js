@@ -1,6 +1,3 @@
-import { Player } from "./core.js";
-import { Coin } from "./core.js";
-import { Lava } from "./core.js";
 
 function parseQuery(queryString) {
     var query = {};
@@ -27,11 +24,6 @@ function trackKeys(keys) {
   
 var arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
-const levelChars = {
-    ".": "empty", "#": "wall", "+": "lava",
-    "@": Player, "o": Coin,
-    "=": Lava, "|": Lava, "v": Lava
-};
 
 
-export { parseQuery, arrowKeys, levelChars };
+export { parseQuery, arrowKeys };
