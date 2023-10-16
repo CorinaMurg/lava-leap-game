@@ -43,13 +43,7 @@ function runLevel(level, Display) {
 var userLives = parseQuery(window.location.search);
 var lives = Number(userLives.lives) || 3; // 3 as the default number of lives
 
-// let endMessage = document.getElementById('end-message');
-// let restartButton = document.getElementById('restart-button');
-// let title = document.getElementById('title-container');
-
 async function runGame(plans, Display) {
-    // let livesContainer = document.getElementById('lives-container');
-
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `Lives: ${lives}`;
     };
