@@ -8,11 +8,10 @@ class Level {
     
         this.rows = rows.map((row, y) => {
             return row.map((ch, x) => {
-            let type = levelChars[ch];
-            if (typeof type === "string") return type;
-            this.startActors.push(
-                type.create(new Vector(x, y), ch));
-            return "empty";
+                let type = levelChars[ch];
+                if (typeof type === "string") return type;
+                this.startActors.push( type.create(new Vector(x, y), ch));
+                return "empty";
             });
         });
     }
@@ -38,7 +37,8 @@ class State {
   
 class Vector {
     constructor(x, y) {
-      this.x = x; this.y = y;
+      this.x = x; 
+      this.y = y;
     }
     plus(other) {
       return new Vector(this.x + other.x, this.y + other.y);
