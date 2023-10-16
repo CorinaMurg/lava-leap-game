@@ -39,10 +39,19 @@ function runLevel(level, Display) {
     });
 }
 
-let userLives = parseQuery(window.location.search);
-let lives = Number(userLives.lives) || 3; // 3 as the default number of lives
+let userLives;
+let lives;
+
+function initializeGame() {
+    userLives = parseQuery(window.location.search);
+    lives = Number(userLives.lives) || 3; // 3 as the default number of lives
+    dom.endMessage.style.display = 'none'; 
+    dom.restartButton.style.display = 'none'; 
+    dom.title.style.display = 'block';
+}
 
 async function runGame(plans, Display) {
+    initializeGame();
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `Lives: ${lives}`;
     };
@@ -74,12 +83,7 @@ async function runGame(plans, Display) {
 
 
 function restartGame() {
-    userLives = parseQuery(window.location.search);
-    lives = Number(userLives.lives) || 3;
-
-    dom.endMessage.style.display = 'none'; 
-    dom.restartButton.style.display = 'none'; 
-    dom.title.style.display = 'block';
+    initializeGame();
     runGame(GAME_LEVELS, DOMDisplay);
 }
 

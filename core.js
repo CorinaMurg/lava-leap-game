@@ -9,7 +9,7 @@ class Level {
         this.rows = rows.map((row, y) => {
             return row.map((ch, x) => {
             let type = levelChars[ch];
-            if (typeof type == "string") return type;
+            if (typeof type === "string") return type;
             this.startActors.push(
                 type.create(new Vector(x, y), ch));
             return "empty";
@@ -31,7 +31,7 @@ class State {
     }
 
     get player() {
-        return this.actors.find(a => a.type == "player");
+        return this.actors.find(a => a.type === "player");
     }
 }
   
@@ -74,11 +74,11 @@ class Lava {
     get type() { return "lava"; }
   
     static create(pos, ch) {
-      if (ch == "=") {
+      if (ch === "=") {
         return new Lava(pos, new Vector(2, 0));
-      } else if (ch == "|") {
+      } else if (ch === "|") {
         return new Lava(pos, new Vector(0, 2));
-      } else if (ch == "v") {
+      } else if (ch === "v") {
         return new Lava(pos, new Vector(0, 3), pos);
       }
     }
@@ -115,7 +115,7 @@ Level.prototype.touches = function(pos, size, type) {
         let isOutside = x < 0 || x >= this.width ||
                         y < 0 || y >= this.height;
         let here = isOutside ? "wall" : this.rows[y][x];
-        if (here == type) return true;
+        if (here === type) return true;
       }
     }
     return false;
@@ -155,7 +155,7 @@ Lava.prototype.collide = function(state) {
     Coin.prototype.collide = function(state) {
         let filtered = state.actors.filter(a => a != this);
         let status = state.status;
-        if (!filtered.some(a => a.type == "coin")) status = "won";
+        if (!filtered.some(a => a.type === "coin")) status = "won";
         return new State(state.level, filtered, status);
     };
   
