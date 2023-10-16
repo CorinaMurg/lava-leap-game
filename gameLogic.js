@@ -3,6 +3,7 @@ import { DOMDisplay } from './dom.js';
 import { parseQuery } from './utils.js';
 import { arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
+import { dom } from './domElements.js';
 
 function runAnimation(frameFunc) {
     let lastTime = null;
@@ -42,15 +43,15 @@ function runLevel(level, Display) {
 var userLives = parseQuery(window.location.search);
 var lives = Number(userLives.lives) || 3; // 3 as the default number of lives
 
-let endMessage = document.getElementById('end-message');
-let restartButton = document.getElementById('restart-button');
-let title = document.getElementById('title-container');
+// let endMessage = document.getElementById('end-message');
+// let restartButton = document.getElementById('restart-button');
+// let title = document.getElementById('title-container');
 
 async function runGame(plans, Display) {
-    let livesContainer = document.getElementById('lives-container');
+    // let livesContainer = document.getElementById('lives-container');
 
     const updateLivesDisplay = () => {
-        livesContainer.textContent = `Lives: ${lives}`;
+        dom.livesContainer.textContent = `Lives: ${lives}`;
     };
 
     updateLivesDisplay(); 
@@ -65,27 +66,27 @@ async function runGame(plans, Display) {
         if (status == "won") level++;
     }
 
-    endMessage.style.display = 'block';
-    restartButton.style.display = 'block';
-    title.style.display = 'none';
+    dom.endMessage.style.display = 'block';
+    dom.restartButton.style.display = 'block';
+    dom.title.style.display = 'none';
 
     if (lives === 0) {
-        endMessage.textContent = "Sorry, you lost all your lives!";
+        dom.endMessage.textContent = "Sorry, you lost all your lives!";
     } else {
-        endMessage.textContent = "Congratulations! You won!";
+        dom.endMessage.textContent = "Congratulations! You won!";
     }
 
-    restartButton.focus();
+    dom.restartButton.focus();
 }
 
 function restartGame() {
-    endMessage.style.display = 'none'; 
-    restartButton.style.display = 'none'; 
-    title.style.display = 'block';
+    dom.endMessage.style.display = 'none'; 
+    dom.restartButton.style.display = 'none'; 
+    dom.title.style.display = 'block';
     runGame(GAME_LEVELS, DOMDisplay);
 }
 
-restartButton.addEventListener('click', restartGame);
+dom.restartButton.addEventListener('click', restartGame);
 
 export { runAnimation, runLevel, runGame, restartGame };
 
