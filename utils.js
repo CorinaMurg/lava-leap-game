@@ -14,6 +14,7 @@ function trackKeys(keys) {
     function track(event) {
       if (keys.includes(event.key)) {
         down[event.key] = event.type == "keydown";
+
         event.preventDefault();
       }
     }
@@ -22,7 +23,7 @@ function trackKeys(keys) {
     return down;
   }
   
-const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp", "w", "a", "s", "d"]);
 
 
 

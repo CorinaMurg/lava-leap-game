@@ -185,8 +185,8 @@ const jumpSpeed = 17;
 
 Player.prototype.update = function(time, state, keys) {
     let xSpeed = 0;
-    if (keys.ArrowLeft) xSpeed -= playerXSpeed;
-    if (keys.ArrowRight) xSpeed += playerXSpeed;
+    if (keys.ArrowLeft || keys.a) xSpeed -= playerXSpeed;
+    if (keys.ArrowRight || keys.d) xSpeed += playerXSpeed;
     let pos = this.pos;
     let movedX = pos.plus(new Vector(xSpeed * time, 0));
     if (!state.level.touches(movedX, this.size, "wall")) {
@@ -197,7 +197,7 @@ Player.prototype.update = function(time, state, keys) {
     let movedY = pos.plus(new Vector(0, ySpeed * time));
     if (!state.level.touches(movedY, this.size, "wall")) {
         pos = movedY;
-    } else if (keys.ArrowUp && ySpeed > 0) {
+    } else if ((keys.ArrowUp || keys.w) && ySpeed > 0) {
         ySpeed = -jumpSpeed;
     } else {
         ySpeed = 0;
