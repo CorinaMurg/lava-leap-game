@@ -1,5 +1,6 @@
 # 🔥 Lava Leap 
 <b>Subtitle: How I finally understood ES6 Classes and Constructors!</b>
+<br>
 (Hint: it does not involve barking dogs)
 
 A 2D platformer game implemented using vanilla JavaScript. The game features:
@@ -10,8 +11,10 @@ A 2D platformer game implemented using vanilla JavaScript. The game features:
 <br>
 
 ## 🎮 Game Flow
-Move your player using the arrow keys or the W, A, D keys. Your player will progress through multiple challenging levels.
-Your goal is to have your player collect all coins without making contact with the lava. A collision with lava means the level restarts. Should your player run out of lives or successfully complete all levels, the game will come to an end.
+- You can move your player using the arrow keys or the W, A, D keys. 
+- The goal is to have it collect all the coins without making contact with the lava, and then it can progress to the next level (there are 5 levels right now). 
+- A collision with the lava means the level restarts. 
+- Should your player run out of lives or successfully complete all levels, the game will come to an end.
 
 💡 Want an extra challenge or need some help? Adjust your player's number of lives directly in the URL.
 
@@ -27,6 +30,7 @@ This project began as a direct application from the "Eloquent JavaScript" book, 
 
 <br>
 Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️):
+
 - pause option
 - a second player (should it be a Good one or a Bad one?! 🤔)
 - improve the UI
