@@ -26,12 +26,10 @@ Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game
 ## Why I Wanted to Create This Project
 I am a self-taught developer focused on frontend and accessibility. For the longest time, ES6 Classes and Constructors just didn't make sense, and assumed they were some secret tools for backend developers. Fortunately, a chance encounter with [Ean Moore](https://www.linkedin.com/in/ean-moore-948357103), a Senior Software Engineer and game developer, changed my perspective. Ean is one of the most passionate JavaScript developers I've ever met! He spoke about game development with such enthusiasm that it sparked my curiosity— even though I don't play video games!
 
-<br>
-This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted by restructuring the codebase, adding end-game messages and a restart button, and modifying the color theme for better accessibility. And guess what? Now I know how to use the “Constructor”! 
+<br>This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted by restructuring the codebase, adding end-game messages and a restart button, and modifying the color theme for better accessibility. And guess what? Now I know how to use the “Constructor”! 
 
+<br>Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️):
 <br>
-Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️):
-
 - pause option
 - a second player (should it be a Good one or a Bad one?! 🤔)
 - improve the UI
