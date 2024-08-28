@@ -28,11 +28,12 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 
 <br>This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted by 
 
-- restructuring the codebase, 
-- adding end-game messages and a restart button, 
-- allowing the user to adjust the number of lives,
-- modifying the color theme for better accessibility.
-<br>And guess what? Now I know how to use the “Constructor”! 
+- restructuring the codebase
+- adding end-game messages and a restart button
+- allowing the user to adjust the number of lives
+- modifying the color theme for better accessibility
+<br>
+And guess what? Now I know how to use the “Constructor”! 
 
 <br>Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️):
 <br>
