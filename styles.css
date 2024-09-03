@@ -1,8 +1,8 @@
 :root {
     --clr-blue: rgb(52,166,251);
     --clr-blue: #023047;
-    --clr-red-lava: rgb(255, 100, 100);
-    --clr-red-lost: rgb(160, 64, 64);
+    --clr-lava: #bb3e03;
+    --clr-dead: rgb(160, 64, 64);
     --clr-gray: rgb(64, 64, 64);
     --clr-player: green;
     --clr-wall: rgb(210, 206, 206);
@@ -14,6 +14,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: var(--clr-gray);
 }
 
 .game {
@@ -35,7 +36,7 @@ body {
 }
 
 .lava { 
-    background: var(--clr-red-lava); 
+    background: var(--clr-lava); 
 }
 
 .wall { 
@@ -55,7 +56,7 @@ body {
 }
 
 .lost .player {
-    background: var(--clr-red-lost);
+    background: var(--clr-gray);
 }
 
 .won .player {
@@ -67,21 +68,21 @@ body {
     background-color: var(--clr-gray);
     margin-inline: auto;
     padding: 1px;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
 }
 
 h1 {
     text-align: center;
-    font-size: 1.8rem;
-    color: var(--clr-red-lava);
+    font-size: 1.5rem;
+    color: var(--clr-yellow);
     margin-block: 2px;
     
 }
 
 .title-container p {
     text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1rem;
+    /* font-weight: bold; */
     color: var(--clr-wall);
     margin-block: 2px;
     
@@ -94,7 +95,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2.5rem;
-    color: var(--clr-red-lost);
+    color: var(--clr-yellow);
 }
 
 #restart-button {
