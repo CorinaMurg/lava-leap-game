@@ -95,8 +95,7 @@ class Coin {
   
     static create(pos) {
       let basePos = pos.plus(new Vector(0.2, 0.1));
-      return new Coin(basePos, basePos,
-                      Math.random() * Math.PI * 2);
+      return new Coin(basePos, basePos, Math.random() * Math.PI * 2);
     }
 }
   
@@ -149,15 +148,7 @@ function overlap(actor1, actor2) {
 Lava.prototype.collide = function(state) {
     return new State(state.level, state.actors, "lost");
     };
-    
-    Coin.prototype.collide = function(state) {
-        let filtered = state.actors.filter(a => a != this);
-        let status = state.status;
-        if (!filtered.some(a => a.type === "coin")) status = "won";
-        return new State(state.level, filtered, status);
-    };
-  
-  
+
 Lava.prototype.update = function(time, state) {
     let newPos = this.pos.plus(this.speed.times(time));
     if (!state.level.touches(newPos, this.size, "wall")) {
@@ -167,6 +158,13 @@ Lava.prototype.update = function(time, state) {
     } else {
       return new Lava(this.pos, this.speed.times(-1));
     }
+};
+
+Coin.prototype.collide = function(state) {
+    let filtered = state.actors.filter(a => a != this);
+    let status = state.status;
+    if (!filtered.some(a => a.type === "coin")) status = "won";
+    return new State(state.level, filtered, status);
 };
   
 const wobbleSpeed = 8, wobbleDist = 0.07;
@@ -213,6 +211,5 @@ const levelChars = {
     "|": Lava, 
     "v": Lava
 };
-
 
 export { Vector, Level, State, Player, Lava, Coin };

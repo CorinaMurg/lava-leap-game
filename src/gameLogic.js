@@ -4,39 +4,9 @@ import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 
-function runAnimation(frameFunc) {
-    let lastTime = null;
-    function frame(time) {
-      if (lastTime != null) {
-        let timeStep = Math.min(time - lastTime, 100) / 1000;
-        if (frameFunc(timeStep) === false) return;
-      }
-      lastTime = time;
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-}
-
-function runLevel(level, Display) {
-    let display = new Display(document.body, level);
-    let state = State.start(level);
-    let ending = 1;
-    return new Promise(resolve => {
-      runAnimation(time => {
-        state = state.update(time, arrowKeys);
-        display.syncState(state);
-        if (state.status === "playing") {
-          return true;
-        } else if (ending > 0) {
-          ending -= time;
-          return true;
-        } else {
-          display.clear();
-          resolve(state.status);
-          return false;
-        }
-      });
-    });
+function restartGame() {
+    initializeGame();
+    runGame(GAME_LEVELS, DOMDisplay);
 }
 
 let userLives;
@@ -51,7 +21,7 @@ function initializeGame() {
 }
 
 async function runGame(plans, Display) {
-    initializeGame();
+    // initializeGame();
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `Lives: ${lives}`;
     };
@@ -81,10 +51,39 @@ async function runGame(plans, Display) {
     dom.restartButton.focus();
 }
 
+function runLevel(level, Display) {
+    let display = new Display(document.body, level);
+    let state = State.start(level);
+    let ending = 1;
+    return new Promise(resolve => {
+      runAnimation(time => {
+        state = state.update(time, arrowKeys);
+        display.syncState(state);
+        if (state.status === "playing") {
+          return true;
+        } else if (ending > 0) {
+          ending -= time;
+          return true;
+        } else {
+          display.clear();
+          resolve(state.status);
+          return false;
+        }
+      });
+    });
+}
 
-function restartGame() {
-    initializeGame();
-    runGame(GAME_LEVELS, DOMDisplay);
+function runAnimation(frameFunc) {
+    let lastTime = null;
+    function frame(time) {
+      if (lastTime != null) {
+        let timeStep = Math.min(time - lastTime, 100) / 1000;
+        if (frameFunc(timeStep) === false) return;
+      }
+      lastTime = time;
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
 }
 
 export { runAnimation, runLevel, runGame, restartGame };
