@@ -1,4 +1,3 @@
-
 class DOMDisplay {
     constructor(parent, level) {
       this.dom = elt("div", {class: "game"}, drawGrid(level));
