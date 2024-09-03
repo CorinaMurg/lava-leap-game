@@ -12,14 +12,19 @@
     </head>
 
   <body>
-        <div class="title-container" id="title-container">
+        <header class="title-container" id="title-container">
             <h1>Lava Leap</h1>
             <p>Capture the gold. Elude the flames.</p>
-        </div>
-        <div id="lives-container">Lives: 3</div>
-
-        <div id="end-message"></div>
-        <button id="restart-button">Restart Game</button>
+            <div id="lives-container">Lives: 3</div>
+            <!-- <div id="about-container">
+                <a>About</a>
+            </div> --> 
+        </header>
+        <main>
+            <div id="end-message"></div>
+            <button id="restart-button">Restart Game</button>
+        </main>
+        
 
         <script type="module" src="./src/domElements.js"></script>
         <script type="module" src="./src/core.js"></script>

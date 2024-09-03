@@ -1,9 +1,11 @@
 :root {
     --clr-blue: rgb(52,166,251);
+    --clr-blue: #023047;
     --clr-red-lava: rgb(255, 100, 100);
     --clr-red-lost: rgb(160, 64, 64);
-    --clr-gray-player: rgb(64, 64, 64);
-    --clr-white: white;
+    --clr-gray: rgb(64, 64, 64);
+    --clr-player: green;
+    --clr-wall: rgb(210, 206, 206);
     --clr-yellow: #fbbc04;
 }
 
@@ -37,7 +39,7 @@ body {
 }
 
 .wall { 
-    background: var(--clr-white);              
+    background: var(--clr-wall);              
 }
 
 .actor { 
@@ -49,7 +51,7 @@ body {
 }
 
 .player { 
-    background: var(--clr-gray-player);   
+    background: var(--clr-player);   
 }
 
 .lost .player {
@@ -62,7 +64,7 @@ body {
 
 .title-container {
     max-width: 40rem;
-    background-color: var(--clr-gray-player);
+    background-color: var(--clr-gray);
     margin-inline: auto;
     padding: 1px;
     margin-bottom: 2rem;
@@ -70,7 +72,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--clr-red-lava);
     margin-block: 2px;
     
@@ -78,9 +80,9 @@ h1 {
 
 .title-container p {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: var(--clr-white );
+    color: var(--clr-wall);
     margin-block: 2px;
     
 }
@@ -109,22 +111,25 @@ h1 {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    color: var(--clr-yellow);
 }
 
-#restart-button:hover {
+/* #restart-button:hover {
     background-color: var(--clr-gray-player);
     color: var(--clr-white);
-}   
+}    */
 
 #lives-container {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
     position: fixed;
     top: 10px;
     right: 10px;
     padding: 10px;
-    background-color: #fff;
+    background-color: var(--clr-gray);
+    color: var(--clr-wall);
     border: 1px solid #000;
 }
-  
+
+
   
