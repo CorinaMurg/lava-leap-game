@@ -1,8 +1,8 @@
 class DOMDisplay {
     constructor(parent, level) {
-      this.dom = elt("div", {class: "game"}, drawGrid(level));
-      this.actorLayer = null;
-      parent.appendChild(this.dom);
+        this.dom = elt("div", {class: "game"}, drawGrid(level));
+        this.actorLayer = null;
+        parent.appendChild(this.dom);
     }
   
     clear() { this.dom.remove(); }
@@ -30,24 +30,24 @@ DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
                            .times(scale);
   
     if (center.x < left + margin) {
-      this.dom.scrollLeft = center.x - margin;
+        this.dom.scrollLeft = center.x - margin;
     } else if (center.x > right - margin) {
-      this.dom.scrollLeft = center.x + margin - width;
+        this.dom.scrollLeft = center.x + margin - width;
     }
     if (center.y < top + margin) {
-      this.dom.scrollTop = center.y - margin;
+        this.dom.scrollTop = center.y - margin;
     } else if (center.y > bottom - margin) {
-      this.dom.scrollTop = center.y + margin - height;
+        this.dom.scrollTop = center.y + margin - height;
     }
 };
 
 function elt(name, attrs, ...children) {
     let dom = document.createElement(name);
     for (let attr of Object.keys(attrs)) {
-      dom.setAttribute(attr, attrs[attr]);
+        dom.setAttribute(attr, attrs[attr]);
     }
     for (let child of children) {
-      dom.appendChild(child);
+        dom.appendChild(child);
     }
     return dom;
 }
@@ -66,12 +66,12 @@ function drawGrid(level) {
 
 function drawActors(actors) {
     return elt("div", {}, ...actors.map(actor => {
-      let rect = elt("div", {class: `actor ${actor.type}`});
-      rect.style.width = `${actor.size.x * scale}px`;
-      rect.style.height = `${actor.size.y * scale}px`;
-      rect.style.left = `${actor.pos.x * scale}px`;
-      rect.style.top = `${actor.pos.y * scale}px`;
-      return rect;
+        let rect = elt("div", {class: `actor ${actor.type}`});
+        rect.style.width = `${actor.size.x * scale}px`;
+        rect.style.height = `${actor.size.y * scale}px`;
+        rect.style.left = `${actor.pos.x * scale}px`;
+        rect.style.top = `${actor.pos.y * scale}px`;
+        return rect;
     }));
 }
   

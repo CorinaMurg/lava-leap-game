@@ -1,4 +1,4 @@
-import { Level, State } from './core.js';
+import { Level, State } from './classes.js';
 import { DOMDisplay } from './dom.js';
 import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
