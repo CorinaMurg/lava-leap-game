@@ -1,7 +1,6 @@
-
 class Level {
     constructor(plan) {
-        let rows = plan.trim().split("\n").map(l => [...l]);
+        let rows = plan.trim().split("\n").map(char => [...char]);
         this.height = rows.length;
         this.width = rows[0].length;
         this.startActors = [];
@@ -57,8 +56,7 @@ class Player {
     get type() { return "player"; }
   
     static create(pos) {
-      return new Player(pos.plus(new Vector(0, -0.5)),
-                        new Vector(0, 0));
+      return new Player(pos.plus(new Vector(0, -0.5)), new Vector(0, 0));
     }
 }
   
@@ -206,9 +204,14 @@ Player.prototype.update = function(time, state, keys) {
 };
 
 const levelChars = {
-    ".": "empty", "#": "wall", "+": "lava",
-    "@": Player, "o": Coin,
-    "=": Lava, "|": Lava, "v": Lava
+    ".": "empty", 
+    "#": "wall", 
+    "+": "lava",
+    "@": Player, 
+    "o": Coin,
+    "=": Lava, 
+    "|": Lava, 
+    "v": Lava
 };
 
 

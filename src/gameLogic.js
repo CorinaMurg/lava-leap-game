@@ -44,7 +44,7 @@ let lives;
 
 function initializeGame() {
     userLives = parseQuery(window.location.search);
-    lives = Number(userLives.lives) || 3; // 3 as the default number of lives
+    lives = Number(userLives.lives) || 3; 
     dom.endMessage.style.display = 'none'; 
     dom.restartButton.style.display = 'none'; 
     dom.title.style.display = 'block';
