@@ -26,9 +26,9 @@ DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
     let top = this.dom.scrollTop, bottom = top + height;
   
     let player = state.player;
-    let center = player.pos.plus(player.size.times(0.5))
-                           .times(scale);
+    let center = player.pos.plus(player.size.times(0.5)).times(scale);
   
+        
     if (center.x < left + margin) {
         this.dom.scrollLeft = center.x - margin;
     } else if (center.x > right - margin) {
@@ -55,12 +55,8 @@ function elt(name, attrs, ...children) {
 const scale = 20;
 
 function drawGrid(level) {
-    return elt("table", {
-        class: "background",
-        style: `width: ${level.width * scale}px`
-    }, ...level.rows.map(row =>
-        elt("tr", {style: `height: ${scale}px`},
-            ...row.map(type => elt("td", {class: type})))
+    return elt("table", {class: "background", style: `width: ${level.width * scale}px`}, ...level.rows.map(row =>
+        elt("tr", {style: `height: ${scale}px`}, ...row.map(type => elt("td", {class: type})))
     ));
 }
 

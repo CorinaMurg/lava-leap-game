@@ -21,7 +21,7 @@ function initializeGame() {
 }
 
 async function runGame(plans, Display) {
-    // initializeGame();
+    initializeGame();
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `Lives: ${lives}`;
     };
