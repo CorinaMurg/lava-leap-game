@@ -119,21 +119,20 @@ Level.prototype.touches = function(pos, size, type) {
 };
 
 State.prototype.update = function(time, keys) {
-    let actors = this.actors
-      .map(actor => actor.update(time, this, keys));
+    let actors = this.actors.map(actor => actor.update(time, this, keys));
     let newState = new State(this.level, actors, this.status);
   
-    if (newState.status != "playing") return newState;
+    if (newState.status !== "playing") return newState;
   
     let player = newState.player;
     if (this.level.touches(player.pos, player.size, "lava")) {
-      return new State(this.level, actors, "lost");
+        return new State(this.level, actors, "lost");
     }
   
     for (let actor of actors) {
-      if (actor != player && overlap(actor, player)) {
-        newState = actor.collide(newState);
-      }
+        if (actor !== player && overlap(actor, player)) {
+            newState = actor.collide(newState);
+        }
     }
     return newState;
 };
@@ -147,16 +146,16 @@ function overlap(actor1, actor2) {
 
 Lava.prototype.collide = function(state) {
     return new State(state.level, state.actors, "lost");
-    };
+};
 
 Lava.prototype.update = function(time, state) {
     let newPos = this.pos.plus(this.speed.times(time));
     if (!state.level.touches(newPos, this.size, "wall")) {
-      return new Lava(newPos, this.speed, this.reset);
+        return new Lava(newPos, this.speed, this.reset);
     } else if (this.reset) {
-      return new Lava(this.reset, this.speed, this.reset);
+        return new Lava(this.reset, this.speed, this.reset);
     } else {
-      return new Lava(this.pos, this.speed.times(-1));
+        return new Lava(this.pos, this.speed.times(-1));
     }
 };
 
