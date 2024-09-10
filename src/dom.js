@@ -4,7 +4,6 @@ class DOMDisplay {
         this.actorLayer = null;
         parent.appendChild(this.dom);
     }
-  
     clear() { this.dom.remove(); }
 }
 
