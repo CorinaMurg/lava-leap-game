@@ -26,14 +26,20 @@ async function runGame(plans, Display) {
         dom.livesContainer.textContent = `Lives: ${lives}`;
     };
 
-    updateLivesDisplay(); 
+    const updateLevelDisplay = (level) => {
+        dom.levelContainer.textContent = `Level: ${level + 1} of ${plans.length}`;
+    };
+
+    updateLivesDisplay();
+    updateLevelDisplay(0);  // Initialize display
 
     for (let level = 0; level < plans.length && lives > 0;) {
+        updateLevelDisplay(level);
         let status = await runLevel(new Level(plans[level]), Display);
 
         if (status === "lost") {
-        lives--;
-        updateLivesDisplay();
+            lives--;
+            updateLivesDisplay();
         }
         if (status === "won") level++;
     }
@@ -50,6 +56,7 @@ async function runGame(plans, Display) {
 
     dom.restartButton.focus();
 }
+
 
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
