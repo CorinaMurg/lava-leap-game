@@ -1,3 +1,4 @@
+// re: structure and challenges.
 class Level {
     constructor(plan) {
         let rows = plan.trim().split("\n").map(char => [...char]);
@@ -13,15 +14,18 @@ class Level {
                 return "empty";
             });
         });
+
+        this.remainingCoins = this.startActors.filter(actor => actor.type === "coin").length;
     }
 }
   
-  
+// dynamic aspects of the game that relate directly to the player's interaction with the game environment
 class State {
-    constructor(level, actors, status) {
+    constructor(level, actors, status, collectedCoins) {
         this.level = level;
         this.actors = actors;
         this.status = status;
+        this.collectedCoins = collectedCoins;
     }
 
     static start(level) {
@@ -109,8 +113,7 @@ Level.prototype.touches = function(pos, size, type) {
   
     for (let y = yStart; y < yEnd; y++) {
       for (let x = xStart; x < xEnd; x++) {
-        let isOutside = x < 0 || x >= this.width ||
-                        y < 0 || y >= this.height;
+        let isOutside = x < 0 || x >= this.width || y < 0 || y >= this.height;
         let here = isOutside ? "wall" : this.rows[y][x];
         if (here === type) return true;
       }
@@ -120,13 +123,13 @@ Level.prototype.touches = function(pos, size, type) {
 
 State.prototype.update = function(time, keys) {
     let actors = this.actors.map(actor => actor.update(time, this, keys));
-    let newState = new State(this.level, actors, this.status);
+    let newState = new State(this.level, actors, this.status, this.collectedCoins);
   
     if (newState.status !== "playing") return newState;
   
     let player = newState.player;
     if (this.level.touches(player.pos, player.size, "lava")) {
-        return new State(this.level, actors, "lost");
+        return new State(this.level, actors, "lost", newState.collectedCoins);
     }
   
     for (let actor of actors) {
@@ -158,14 +161,19 @@ Lava.prototype.update = function(time, state) {
         return new Lava(this.pos, this.speed.times(-1));
     }
 };
-
-Coin.prototype.collide = function(state) {
-    let filtered = state.actors.filter(a => a != this);
-    let status = state.status;
-    if (!filtered.some(a => a.type === "coin")) status = "won";
-    return new State(state.level, filtered, status);
-};
   
+Coin.prototype.collide = function(state) {
+    let filtered = state.actors.filter(a => a != this);  
+    let status = state.status;
+    state.collectedCoins++; 
+    state.level.remainingCoins--; 
+
+    if (!filtered.some(a => a.type === "coin")) {
+        status = "won";
+    }
+    return new State(state.level, filtered, status, state.collectedCoins);
+};
+
 const wobbleSpeed = 8, wobbleDist = 0.07;
 
 Coin.prototype.update = function(time) {

@@ -20,6 +20,8 @@ function initializeGame() {
     dom.title.style.display = 'block';
     dom.livesContainer.style.display = "block";
     dom.levelContainer.style.display = "block";
+    dom.coinsCollectedContainer.style.display = "block";
+    dom.coinsRemainingContainer.style.display = "block";
 }
 
 async function runGame(plans, Display) {
@@ -33,17 +35,26 @@ async function runGame(plans, Display) {
     };
 
     updateLivesDisplay();
-    updateLevelDisplay(0);  // Initialize display
+    updateLevelDisplay(0);  
 
     for (let level = 0; level < plans.length && lives > 0;) {
+        let currentLevel = new Level(plans[level]);
+        let state = State.start(currentLevel);
+        initializeCoinDisplays(currentLevel); 
+
         updateLevelDisplay(level);
-        let status = await runLevel(new Level(plans[level]), Display);
+        let status = await runLevel(currentLevel, Display);
 
         if (status === "lost") {
             lives--;
             updateLivesDisplay();
+        } else if (status === "won") {
+            level++;
         }
-        if (status === "won") level++;
+
+        // Update the display to show the number of coins collected and remaining
+        updateCoinsCollectedDisplay(state.collectedCoins);
+        updateCoinsRemainingDisplay(currentLevel.remainingCoins);
     }
 
     dom.endMessage.style.display = 'block';
@@ -51,6 +62,8 @@ async function runGame(plans, Display) {
     dom.title.style.display = 'none';
     dom.livesContainer.style.display = "none";
     dom.levelContainer.style.display = "none";
+    dom.coinsCollectedContainer.style.display = "none";
+    dom.coinsRemainingContainer.style.display = "none";
 
     if (lives === 0) {
         dom.endMessage.textContent = "Sorry, you lost all your lives!";
@@ -59,6 +72,19 @@ async function runGame(plans, Display) {
     }
 
     dom.restartButton.focus();
+}
+
+function updateCoinsCollectedDisplay(collectedCoins) {
+    dom.coinsCollectedContainer.textContent = `Coins Collected: ${collectedCoins}`;
+}
+
+function updateCoinsRemainingDisplay(remainingCoins) {
+    dom.coinsRemainingContainer.textContent = `Coins Remaining: ${remainingCoins}`;
+}
+
+function initializeCoinDisplays(level) {
+    updateCoinsCollectedDisplay(0);  
+    updateCoinsRemainingDisplay(level.remainingCoins); 
 }
 
 

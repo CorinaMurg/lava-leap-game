@@ -144,6 +144,25 @@ h1 {
     /* border: 1px solid #000; */
 }
 
+#coins-collected-container, #coins-remaining-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: fixed; 
+    right: 10px;
+    padding: 10px;
+    background-color: var(--clr-gray);
+    color: var(--clr-wall);
+    /* border: 1px solid #000; */
+}
+
+
+#coins-collected-container {
+    top: 150px;
+}
+
+#coins-remaining-container {
+    top: 180px;
+}
 
 
   
