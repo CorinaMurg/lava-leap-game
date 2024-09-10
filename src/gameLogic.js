@@ -39,10 +39,6 @@ async function runGame(plans, Display) {
 
     for (let level = 0; level < plans.length && lives > 0;) {
         let currentLevel = new Level(plans[level]);
-        // initialize the game state for the newly created level; each level starts with a clean slate, with initial 
-        // settings (actor positions, coins,) reset to their starting conditions as defined by the level design. 
-        // crucial for games where each level's outcome does not depend on the previous levels
-        let state = State.start(currentLevel);
         initializeCoinDisplays(currentLevel); 
 
         updateLevelDisplay(level);
@@ -72,8 +68,12 @@ async function runGame(plans, Display) {
 
     dom.restartButton.focus();
 }
+
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
+    // initialize the game state for the newly created level; each level starts with a clean slate, with initial 
+    // settings (actor positions, coins,) reset to their starting conditions as defined by the level design. 
+    // crucial for games where each level's outcome does not depend on the previous levels
     let state = State.start(level);
     let ending = 1;
     return new Promise(resolve => {
