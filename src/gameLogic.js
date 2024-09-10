@@ -18,6 +18,8 @@ function initializeGame() {
     dom.endMessage.style.display = 'none'; 
     dom.restartButton.style.display = 'none'; 
     dom.title.style.display = 'block';
+    dom.livesContainer.style.display = "block";
+    dom.levelContainer.style.display = "block";
 }
 
 async function runGame(plans, Display) {
