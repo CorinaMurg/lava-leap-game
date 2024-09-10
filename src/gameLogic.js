@@ -47,6 +47,8 @@ async function runGame(plans, Display) {
     dom.endMessage.style.display = 'block';
     dom.restartButton.style.display = 'block';
     dom.title.style.display = 'none';
+    dom.livesContainer.style.display = "none";
+    dom.levelContainer.style.display = "none";
 
     if (lives === 0) {
         dom.endMessage.textContent = "Sorry, you lost all your lives!";
