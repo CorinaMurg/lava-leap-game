@@ -4,6 +4,20 @@ import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 
+
+function welcome() {
+    dom.endMessage.style.display = 'none'; 
+    dom.restartButton.style.display = 'none'; 
+    dom.startButton.style.display = 'block';
+    dom.title.style.display = 'block';
+    dom.stats.style.display = "none";  
+}
+
+function startGame() {
+    initializeGame();
+    runGame(GAME_LEVELS, DOMDisplay);
+}
+
 function restartGame() {
     initializeGame();
     runGame(GAME_LEVELS, DOMDisplay);
@@ -17,11 +31,8 @@ function initializeGame() {
     lives = Number(userLives.lives) || 3; 
     dom.endMessage.style.display = 'none'; 
     dom.restartButton.style.display = 'none'; 
-    dom.title.style.display = 'block';
-    dom.livesContainer.style.display = "block";
-    dom.levelContainer.style.display = "block";
-    dom.coinsCollectedContainer.style.display = "block";
-    dom.coinsRemainingContainer.style.display = "block";
+    dom.title.style.display = 'none';
+    dom.stats.style.display = "block";  
 }
 
 async function runGame(plans, Display) {
@@ -54,11 +65,9 @@ async function runGame(plans, Display) {
 
     dom.endMessage.style.display = 'block';
     dom.restartButton.style.display = 'block';
+    dom.startButton.style.display = 'none';
     dom.title.style.display = 'none';
-    dom.livesContainer.style.display = "none";
-    dom.levelContainer.style.display = "none";
-    dom.coinsCollectedContainer.style.display = "none";
-    dom.coinsRemainingContainer.style.display = "none";
+    dom.stats.style.display = "none";  
 
     if (lives === 0) {
         dom.endMessage.textContent = "Sorry, you lost all your lives!";
@@ -126,5 +135,5 @@ function initializeCoinDisplays(level) {
     updateCoinsRemainingDisplay(level.remainingCoins); 
 }
 
-export { runAnimation, runLevel, runGame, restartGame };
+export { runAnimation, runLevel, runGame, startGame, restartGame, welcome };
 

@@ -17,13 +17,22 @@ body {
     background-color: var(--clr-gray);
 }
 
+/* main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
 .game {
     overflow: hidden;
     max-width: 42rem;
     max-height: 28rem;
     position: relative;
     margin-inline: auto;
-    border: 10px solid rgb(19, 18, 18);
+    margin-top: 40px;
+    /* margin-block: auto; */
+    border: 10px solid rgb(44, 41, 41);
     border-radius: 5px;
     box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5);
 }
@@ -102,7 +111,7 @@ h1 {
     color: var(--clr-yellow);
 }
 
-#restart-button {
+#restart-button, #start-button {
     display: none;
     position: fixed;
     top: 60%;
