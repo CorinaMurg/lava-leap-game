@@ -1,24 +1,27 @@
 # 🔥 Lava Leap 
 <b>Subtitle: How I finally understood ES6 Classes and Constructors!</b>
 <br>
-(Hint: it does not involve barking dogs)
+(Hint: it does not involve barking dogs!!!)
 
 Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game features:
 - player movement
-- enemy (ie lava) patterns
-- collectible items (coins)
-- platform obstacles.
+- platform obstacles
+- five levels
+- lava patterns that the player has to avoid
+- coins that the player has to collect in order to move to the next level
+- 
+
 <br>
 
 ## 🎮 Game Flow
 - You can move your player using the arrow keys or the W, A, D keys. 
-- The goal is to have it collect all the coins without making contact with the lava, and then it can progress to the next level (there are 5 levels right now). 
-- A collision with the lava means the level restarts. 
+- The goal is to have it collect all the coins without making contact with the lava, and then it can progress to the next level
+- A collision with the lava means the level restarts 
 - Should your player run out of lives or successfully complete all levels, the game will come to an end.
 
 💡 Want an extra challenge or need some help? Adjust your player's number of lives directly in the URL.
 
-🔄 If you've run out of lives or conquered all levels, I added end-of-game messages and a restart button so you can always try again!
+🔄 If you've run out of lives or completed all levels, I added end-of-game messages and a restart button so you can always try again!
 
 <br>
 
@@ -30,8 +33,9 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 
 - restructuring the codebase
 - adding end-game messages and a restart button
-- allowing the user to adjust the number of lives
+- allowing the user to adjust the number of lives in the url
 - modifying the color theme for better accessibility
+- game stats: level number, coins collected and remaining
 <br>
 And guess what? Now I know how to use the “Constructor”! 
 
