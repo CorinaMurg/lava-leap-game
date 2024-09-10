@@ -39,6 +39,9 @@ async function runGame(plans, Display) {
 
     for (let level = 0; level < plans.length && lives > 0;) {
         let currentLevel = new Level(plans[level]);
+        // initialize the game state for the newly created level; each level starts with a clean slate, with initial 
+        // settings (actor positions, coins,) reset to their starting conditions as defined by the level design. 
+        // crucial for games where each level's outcome does not depend on the previous levels
         let state = State.start(currentLevel);
         initializeCoinDisplays(currentLevel); 
 
@@ -51,10 +54,6 @@ async function runGame(plans, Display) {
         } else if (status === "won") {
             level++;
         }
-
-        // Update the display to show the number of coins collected and remaining
-        updateCoinsCollectedDisplay(state.collectedCoins);
-        updateCoinsRemainingDisplay(currentLevel.remainingCoins);
     }
 
     dom.endMessage.style.display = 'block';
@@ -73,21 +72,6 @@ async function runGame(plans, Display) {
 
     dom.restartButton.focus();
 }
-
-function updateCoinsCollectedDisplay(collectedCoins) {
-    dom.coinsCollectedContainer.textContent = `Coins Collected: ${collectedCoins}`;
-}
-
-function updateCoinsRemainingDisplay(remainingCoins) {
-    dom.coinsRemainingContainer.textContent = `Coins Remaining: ${remainingCoins}`;
-}
-
-function initializeCoinDisplays(level) {
-    updateCoinsCollectedDisplay(0);  
-    updateCoinsRemainingDisplay(level.remainingCoins); 
-}
-
-
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
     let state = State.start(level);
@@ -95,6 +79,12 @@ function runLevel(level, Display) {
     return new Promise(resolve => {
       runAnimation(time => {
         state = state.update(time, arrowKeys);
+
+        // Update collected coins display
+        updateCoinsCollectedDisplay(state.collectedCoins);  
+        // Update remaining coins display
+        updateCoinsRemainingDisplay(level.remainingCoins);  
+
         display.syncState(state);
         if (state.status === "playing") {
           return true;
@@ -121,6 +111,19 @@ function runAnimation(frameFunc) {
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
+}
+
+function updateCoinsCollectedDisplay(collectedCoins) {
+    dom.coinsCollectedContainer.textContent = `Coins Collected: ${collectedCoins}`;
+}
+
+function updateCoinsRemainingDisplay(remainingCoins) {
+    dom.coinsRemainingContainer.textContent = `Coins Remaining: ${remainingCoins}`;
+}
+
+function initializeCoinDisplays(level) {
+    updateCoinsCollectedDisplay(0);  
+    updateCoinsRemainingDisplay(level.remainingCoins); 
 }
 
 export { runAnimation, runLevel, runGame, restartGame };

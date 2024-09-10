@@ -29,7 +29,7 @@ class State {
     }
 
     static start(level) {
-        return new State(level, level.startActors, "playing");
+        return new State(level, level.startActors, "playing", 0);
     }
 
     get player() {
