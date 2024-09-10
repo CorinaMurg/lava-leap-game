@@ -19,10 +19,13 @@ body {
 
 .game {
     overflow: hidden;
-    max-width: 40rem;
+    max-width: 42rem;
     max-height: 28rem;
     position: relative;
     margin-inline: auto;
+    border: 10px solid rgb(19, 18, 18);
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .background    { 
@@ -73,7 +76,8 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: normal;
     color: var(--clr-yellow);
     margin-block: 2px;
     
