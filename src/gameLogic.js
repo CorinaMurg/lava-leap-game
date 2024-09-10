@@ -48,7 +48,11 @@ async function runGame(plans, Display) {
             lives--;
             updateLivesDisplay();
         } else if (status === "won") {
-            level++;
+            // Player has won the level, show end-of-level options
+            const continueGame = await showEndOfLevelOptions(currentLevel);
+            if (!continueGame) {
+                break; // If player chooses to exit, break the loop
+            }
         }
     }
 
@@ -69,6 +73,25 @@ async function runGame(plans, Display) {
     dom.restartButton.focus();
 }
 
+function showEndOfLevelOptions(level) {
+    return new Promise(resolve => {
+        // Display end-of-level screen with stats and options
+       
+        dom.levelContainer.textContent = `Level ${level} completed! Coins Collected: ${level.collectedCoins}`;
+        dom.endMessage.textContent = "Press 'N' to continue to the next level, or 'E' to exit.";
+        dom.endMessage.style.display = 'block';
+
+        document.addEventListener('keydown', function handleDecision(event) {
+            if (event.key.toLowerCase() === "n") {
+                dom.endMessage.style.display = 'none';
+                resolve(true); // Resolve true to continue the game
+            } else if (event.key.toLowerCase() === "e") {
+                resolve(false); // Resolve false to exit the game
+            }
+        }, { once: true });
+    });
+}
+
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
     // initialize the game state for the newly created level; each level starts with a clean slate, with initial 
@@ -86,15 +109,16 @@ function runLevel(level, Display) {
         updateCoinsRemainingDisplay(level.remainingCoins);  
 
         display.syncState(state);
+
         if (state.status === "playing") {
-          return true;
+            return true;
         } else if (ending > 0) {
-          ending -= time;
-          return true;
+            ending -= time;
+            return true;
         } else {
-          display.clear();
-          resolve(state.status);
-          return false;
+            display.clear();
+            resolve(state.status);
+            return false;
         }
       });
     });
