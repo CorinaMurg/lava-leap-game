@@ -142,51 +142,6 @@ h1 {
 }
 
 
-#lives-container {
-    font-size: 1.2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
-}
-
-#level-container {
-    font-size: 1.2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 70px; 
-    right: 10px;
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
-}
-
-#coins-collected-container, #coins-remaining-container {
-    font-size: 1.2rem;
-    font-weight: bold;
-    position: fixed; 
-    right: 10px;
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
-}
-
-
-#coins-collected-container {
-    top: 150px;
-}
-
-#coins-remaining-container {
-    top: 180px;
-}
-
-
 /* welcome page */
 
 .vertical-container {
@@ -300,3 +255,79 @@ p {
     50% { transform: translateX(340%); } /* Move to the far end of the container */
 }
 
+.lives-number {
+    color: red;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.you-choose {
+    color: var(--clr-yellow);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#game-about-container {
+    border: 2px solid var(--clr-wall);
+    border-radius: 5px;
+}
+
+
+/* game stats */
+
+#game-stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+}
+
+#lives-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* position: fixed;
+    top: 10px;
+    right: 10px; */
+    padding: 10px;
+    background-color: var(--clr-gray);
+    color: var(--clr-wall);
+    /* border: 1px solid #000; */
+}
+
+#level-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* position: fixed;
+    top: 70px; 
+    right: 10px; */
+    padding: 10px;
+    background-color: var(--clr-gray);
+    color: var(--clr-wall);
+    /* border: 1px solid #000; */
+}
+
+#coins-collected-container, #coins-remaining-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* position: fixed; 
+    right: 10px; */
+    padding: 10px;
+    background-color: var(--clr-gray);
+    color: var(--clr-wall);
+    /* border: 1px solid #000; */
+}
+
+
+/* #coins-collected-container {
+    top: 150px;
+}
+
+#coins-remaining-container {
+    top: 180px;
+} */
