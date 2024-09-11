@@ -89,22 +89,30 @@ h1 {
     margin-block: 10px;
 }
 
-#end-message {
-    display: none;
+#game-end-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.end-message {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+#end-message-one, #end-message-two {
     font-size: 2.5rem;
     color: var(--clr-yellow);
 }
 
 #restart-button, #start-button {
-    display: none;
-    /* position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+    /* display: none; */
     width: 20rem;
     padding: 10px;
     font-family: "Montserrat", sans-serif;
@@ -115,6 +123,16 @@ h1 {
     border-radius: 3px;
     cursor: pointer;
     color: var(--clr-yellow);
+}
+
+#restart-button {
+    margin-top: 40px;
+    margin-inline: auto;
+    /* display: none;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
 }
 
 #start-button {

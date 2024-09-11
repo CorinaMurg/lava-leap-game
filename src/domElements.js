@@ -1,5 +1,6 @@
 export const dom = {
-    endMessage: document.getElementById('end-message'),
+    endMessageOne: document.getElementById('end-message-one'),
+    endMessageTwo: document.getElementById('end-message-two'),
     restartButton: document.getElementById('restart-button'),
     startButton: document.getElementById('start-button'),
     title: document.getElementById('title-container'),

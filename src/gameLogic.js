@@ -65,12 +65,17 @@ async function runGame(plans, Display) {
 
     dom.gameStartContainer.style.display = 'none';
     dom.gameEndContainer.style.display = 'block';
+    dom.endMessageOne.style.display = 'block';
+    dom.endMessageTwo.style.display = 'block';
+    dom.restartButton.style.display = 'block';
     dom.gameStatsContainer.style.display = "none";
 
     if (lives === 0) {
-        dom.endMessage.textContent = "Sorry, you lost all your lives!";
+        dom.endMessageOne.textContent = "Sorry ☹️,";
+        dom.endMessageTwo.textContent = "you lost all your lives.";
     } else {
-        dom.endMessage.textContent = "Congratulations! You won!";
+        dom.endMessageOne.textContent = "Congratulations! 🚀";
+        dom.endMessageTwo.textContent = "You won!";
     }
 
     dom.restartButton.focus();
