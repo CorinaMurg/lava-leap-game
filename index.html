@@ -13,13 +13,15 @@
 
   <body>
         <main>
+            <!-- game welcome -->
             <div id="game-start-container">
                 <div class="title-container" id="title-container">
                     <h1>Lava Leap</h1>
                 </div>
 
+                <!-- game about -->
                 <div id="game-about-container" class="vertical-container">
-                    <div class="row-container capture-container">
+                    <div class="row-container gap-40 capture-container">
                         <div class="align-right">
                             <p class="about-text">Capture the gold</p>
                         </div>
@@ -30,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="row-container elude-container">
+                    <div class="row-container gap-40 elude-container">
                         <div class="align-right">
                             <p class="about-text">Elude the flames</p>
                         </div>
@@ -39,7 +41,7 @@
                         </div>
                     </div>
 
-                    <div class="row-container levels-container">
+                    <div class="row-container gap-40 levels-container">
                         <div class="align-right">
                             <p class="about-text">Levels</p>
                         </div>
@@ -47,7 +49,7 @@
                             <p class="lives-number">5</p>
                         </div>
                     </div>
-                    <div class="row-container levels-container">
+                    <div class="row-container gap-40 levels-container">
                         <div class="align-right">
                             <p class="about-text">Lives</p>
                         </div>
@@ -60,17 +62,59 @@
                 </div>
             </div>
 
+            <!-- game end -->
             <div id="game-end-container">
                 <div id="end-message"></div>
                 <button id="restart-button">Restart Game</button>
             </div>
             
-            <div id="game-stats-container">
-                <div id="lives-container">Lives: 3</div>
-                <div id="level-container">Level: 1 of 5</div>
-                <div>Coins</div>
-                <div id="coins-collected-container">Collected: 0</div>
-                <div id="coins-remaining-container">Remaining: 0</div>
+            <!-- game stats -->
+            <div id="game-stats-container" class="vertical-container">
+                <div class="row-container gap-20">
+                    <div class="align-right">
+                        <p class="stats-text">Lives: </p>
+                    </div>
+                    <div class="align-left">
+                        <p id="lives-container" class="stats-number">3</p>
+                    </div>
+                </div>
+
+                <div class="row-container gap-20">
+                    <div class="align-right">
+                        <p class="stats-text">Level: </p>
+                    </div>
+                    <div class="align-left level-text">
+                        <p id="level-number" class="stats-number">1</p>
+                        <!-- <p>of</p>
+                        <p id="total-levels">5</p> -->
+                    </div>
+                </div>
+
+                <div class="row-container gap-20 margin-top-30 centered">
+                    <div class="align-right">
+                        <p class="stats-heading">COINS </p>
+                    </div>
+                    <div class="align-left">
+                    </div>
+                </div>
+
+                <div class="row-container gap-20">
+                    <div class="align-right">
+                        <p class="stats-text">Collected: </p>
+                    </div>
+                    <div class="align-left">
+                        <p id="coins-collected-container" class="stats-number">0</p>
+                    </div>
+                </div>
+
+                <div class="row-container gap-20">
+                    <div class="align-right">
+                        <p class="stats-text">Remaining: </p>
+                    </div>
+                    <div class="align-left">
+                        <p id="coins-remaining-container" class="stats-number">0</p>
+                    </div>
+                </div>
             </div>
         </main>
         

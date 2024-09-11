@@ -28,9 +28,7 @@ let lives;
 function initializeGame() {
     userLives = parseQuery(window.location.search);
     lives = Number(userLives.lives) || 3; 
-    // dom.endMessage.style.display = 'none'; 
-    // dom.restartButton.style.display = 'none'; 
-    // dom.title.style.display = 'none';
+
     dom.gameStartContainer.style.display = 'none';
     dom.gameEndContainer.style.display = 'none';
     dom.gameStatsContainer.style.display = "block";  
@@ -39,11 +37,12 @@ function initializeGame() {
 async function runGame(plans, Display) {
     initializeGame();
     const updateLivesDisplay = () => {
-        dom.livesContainer.textContent = `Lives: ${lives}`;
+        dom.livesContainer.textContent = `${lives}`;
     };
 
     const updateLevelDisplay = (level) => {
-        dom.levelContainer.textContent = `Level: ${level + 1} of ${plans.length}`;
+        dom.levelNumber.textContent = `${level + 1}`;
+        // dom.totalLevels.textContent = `${plans.length}`;
     };
 
     updateLivesDisplay();
@@ -63,12 +62,6 @@ async function runGame(plans, Display) {
             level++;
         }
     }
-
-    // dom.endMessage.style.display = 'block';
-    // dom.restartButton.style.display = 'block';
-    // dom.startButton.style.display = 'none';
-    // dom.title.style.display = 'none';
-    // dom.gameStats.style.display = "none";  
 
     dom.gameStartContainer.style.display = 'none';
     dom.gameEndContainer.style.display = 'block';
@@ -94,21 +87,20 @@ function runLevel(level, Display) {
       runAnimation(time => {
         state = state.update(time, arrowKeys);
 
-        // Update collected coins display
         updateCoinsCollectedDisplay(state.collectedCoins);  
-        // Update remaining coins display
         updateCoinsRemainingDisplay(level.remainingCoins);  
 
         display.syncState(state);
+
         if (state.status === "playing") {
-          return true;
+            return true;
         } else if (ending > 0) {
-          ending -= time;
-          return true;
+            ending -= time;
+            return true;
         } else {
-          display.clear();
-          resolve(state.status);
-          return false;
+            display.clear();
+            resolve(state.status);
+            return false;
         }
       });
     });
@@ -117,22 +109,22 @@ function runLevel(level, Display) {
 function runAnimation(frameFunc) {
     let lastTime = null;
     function frame(time) {
-      if (lastTime != null) {
-        let timeStep = Math.min(time - lastTime, 100) / 1000;
-        if (frameFunc(timeStep) === false) return;
-      }
-      lastTime = time;
-      requestAnimationFrame(frame);
+        if (lastTime != null) {
+            let timeStep = Math.min(time - lastTime, 100) / 1000;
+            if (frameFunc(timeStep) === false) return;
+        }
+        lastTime = time;
+        requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
 }
 
 function updateCoinsCollectedDisplay(collectedCoins) {
-    dom.coinsCollectedContainer.textContent = `Coins Collected: ${collectedCoins}`;
+    dom.coinsCollectedContainer.textContent = `${collectedCoins}`;
 }
 
 function updateCoinsRemainingDisplay(remainingCoins) {
-    dom.coinsRemainingContainer.textContent = `Coins Remaining: ${remainingCoins}`;
+    dom.coinsRemainingContainer.textContent = `${remainingCoins}`;
 }
 
 function initializeCoinDisplays(level) {

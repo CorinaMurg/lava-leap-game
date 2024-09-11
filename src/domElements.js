@@ -4,7 +4,8 @@ export const dom = {
     startButton: document.getElementById('start-button'),
     title: document.getElementById('title-container'),
     livesContainer: document.getElementById('lives-container'),
-    levelContainer: document.getElementById('level-container'),
+    levelNumber: document.getElementById('level-number'),
+    totalLevels: document.getElementById('total-levels'),
     coinsCollectedContainer: document.getElementById('coins-collected-container'),
     coinsRemainingContainer: document.getElementById('coins-remaining-container'),
 

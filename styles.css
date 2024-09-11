@@ -7,21 +7,13 @@
     --clr-player: green;
     --clr-wall: rgb(210, 206, 206);
     --clr-yellow: #fbbc04;
+    --clr-red: red;
 }
-
-/* --blue-color: #006699;
---yellow-color: #fbbc04; */
 
 body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--clr-gray);
 }
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 
 main {
     display: flex;
@@ -41,17 +33,6 @@ main {
     /* border: 10px solid rgb(44, 41, 41);
     border-radius: 5px;
     box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5); */
-}
-
-#game-start-container {
-    max-width: 42rem;
-    max-height: 28rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 20px;
 }
 
 .background    { 
@@ -144,6 +125,23 @@ h1 {
 
 /* welcome page */
 
+#game-start-container {
+    max-width: 42rem;
+    max-height: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+#game-about-container {
+    background-color: var(--clr-blue);
+    border: 2px solid var(--clr-wall);
+    border-radius: 5px;
+}
+
 .vertical-container {
     display: flex;
     flex-direction: column;
@@ -162,7 +160,7 @@ p {
     justify-content: space-between;
     margin-block: 0px;
     width: 100%;
-    gap: 40px;
+    /* gap: 20px; */
 }
 
 .align-right {
@@ -193,7 +191,6 @@ p {
 .coins-animation {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     gap: 20px;
 }
 
@@ -212,51 +209,35 @@ p {
     50% { transform: translateY(-5px); }
 }
 
-/* .animation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-} */
-
-/* .animation > div {
-    flex-basis: 50%;
-} */
-
 .animation > div {
     flex: 0 0 auto;
 }
 
 .row-container > div:first-child {
-    flex-basis: 50%; /* Sets the first child to take 70% of the flex container's space */
+    flex-basis: 50%; 
 }
 
 .row-container > div:last-child {
-    flex-basis: 50%; /* Sets the second child to take the remaining 30% of the space */
+    flex-basis: 50%; 
 }
+
 .front-lava {
     width: 20px;
     height: 20px;
     background-color: var(--clr-lava);
-    /* position: relative; */
     display: inline-block;
     animation: moveLava 5s ease-in-out infinite;
     margin-right: -80px;
     margin-top: 5px;
 }
 
-/* @keyframes moveLava {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(-20px); }
-} */
-
 @keyframes moveLava {
-    0%, 100% { transform: translateX(0); } /* Start and end at the original position */
-    50% { transform: translateX(340%); } /* Move to the far end of the container */
+    0%, 100% { transform: translateX(0); } 
+    50% { transform: translateX(340%); } 
 }
 
 .lives-number {
-    color: red;
+    color: var(--clr-red);
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -267,67 +248,61 @@ p {
     font-weight: bold;
 }
 
-#game-about-container {
-    border: 2px solid var(--clr-wall);
-    border-radius: 5px;
-}
 
-
-/* game stats */
+/************ game stats *****************/
 
 #game-stats-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
     position: fixed;
-    top: 10px;
-    right: 10px;
-
+    top: 50%;        
+    right: 10px;     
+    transform: translateY(-50%); 
+    width: 230px;    
+    height: auto;    
+    /* padding: 20px;    */
 }
 
-#lives-container {
+#game-stats-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.level-text {
+    display: flex;
+}
+
+.stats-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--clr-wall);
+}
+
+.stats-number {
     font-size: 1.2rem;
     font-weight: bold;
-    /* position: fixed;
-    top: 10px;
-    right: 10px; */
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
+    color: var(--clr-yellow);
 }
 
-#level-container {
-    font-size: 1.2rem;
+.stats-heading {
+    font-size: 1.3rem;
     font-weight: bold;
-    /* position: fixed;
-    top: 70px; 
-    right: 10px; */
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
+    color: var(--clr-red);
+    margin-bottom: 5px;
 }
 
-#coins-collected-container, #coins-remaining-container {
-    font-size: 1.2rem;
-    font-weight: bold;
-    /* position: fixed; 
-    right: 10px; */
-    padding: 10px;
-    background-color: var(--clr-gray);
-    color: var(--clr-wall);
-    /* border: 1px solid #000; */
-}
-
-
-/* #coins-collected-container {
-    top: 150px;
-}
-
-#coins-remaining-container {
-    top: 180px;
-} */
