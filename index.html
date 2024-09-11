@@ -12,15 +12,35 @@
     </head>
 
   <body>
-        <header class="title-container" id="title-container">
-            <h1>Lava Leap</h1>
-            <p>Capture the gold. Elude the flames.</p>
-        </header>
         <main>
-            <div id="end-message"></div>
-            <button id="restart-button">Restart Game</button>
-            <button id="start-button">Start Game</button>
-            <div id="stats">
+            <div id="game-start-container">
+                <div class="title-container" id="title-container">
+                    <h1>Lava Leap</h1>
+                    
+                </div>
+                <div id="game-about-container">
+                    <div id="capture-container">
+                        <p>Capture the gold.</p>
+                    </div>
+                    <div id="elude-container">
+                        <p>Capture the gold.</p>
+                    </div>
+                    <div id="levels-container">
+                        <p>Levels</p>
+
+                    </div>
+                </div>
+                <div id="start-button-container">
+                    <button id="start-button">Start Game</button>
+                </div>
+            </div>
+
+            <div id="game-end-container">
+                <div id="end-message"></div>
+                <button id="restart-button">Restart Game</button>
+            </div>
+            
+            <div id="game-stats-container">
                 <div id="lives-container">Lives: 3</div>
                 <div id="level-container">Level: 1 of 5</div>
                 <div id="coins-collected-container">Coins Collected: 0</div>

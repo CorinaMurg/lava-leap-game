@@ -6,11 +6,10 @@ import { dom } from './domElements.js';
 
 
 function welcome() {
-    dom.endMessage.style.display = 'none'; 
-    dom.restartButton.style.display = 'none'; 
+    dom.gameStartContainer.style.display = 'block';
     dom.startButton.style.display = 'block';
-    dom.title.style.display = 'block';
-    dom.stats.style.display = "none";  
+    dom.gameEndContainer.style.display = 'none';
+    dom.gameStatsContainer.style.display = "none";  
 }
 
 function startGame() {
@@ -29,10 +28,12 @@ let lives;
 function initializeGame() {
     userLives = parseQuery(window.location.search);
     lives = Number(userLives.lives) || 3; 
-    dom.endMessage.style.display = 'none'; 
-    dom.restartButton.style.display = 'none'; 
-    dom.title.style.display = 'none';
-    dom.stats.style.display = "block";  
+    // dom.endMessage.style.display = 'none'; 
+    // dom.restartButton.style.display = 'none'; 
+    // dom.title.style.display = 'none';
+    dom.gameStartContainer.style.display = 'none';
+    dom.gameEndContainer.style.display = 'none';
+    dom.gameStatsContainer.style.display = "none";  
 }
 
 async function runGame(plans, Display) {
@@ -63,11 +64,15 @@ async function runGame(plans, Display) {
         }
     }
 
-    dom.endMessage.style.display = 'block';
-    dom.restartButton.style.display = 'block';
-    dom.startButton.style.display = 'none';
-    dom.title.style.display = 'none';
-    dom.stats.style.display = "none";  
+    // dom.endMessage.style.display = 'block';
+    // dom.restartButton.style.display = 'block';
+    // dom.startButton.style.display = 'none';
+    // dom.title.style.display = 'none';
+    // dom.gameStats.style.display = "none";  
+
+    dom.gameStartContainer.style.display = 'none';
+    dom.gameEndContainer.style.display = 'block';
+    dom.gameStatsContainer.style.display = "none";
 
     if (lives === 0) {
         dom.endMessage.textContent = "Sorry, you lost all your lives!";

@@ -17,12 +17,12 @@ body {
     background-color: var(--clr-gray);
 }
 
-/* main {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-} */
+}
 
 .game {
     overflow: hidden;
@@ -37,6 +37,15 @@ body {
     box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5);
 }
 
+#game-start-container {
+    max-width: 42rem;
+    max-height: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
 .background    { 
     background: var(--clr-blue);
     table-layout: fixed;
@@ -85,20 +94,15 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 1.8rem;
-    font-weight: normal;
+    font-size: 5rem;
+    font-weight: bold;
     color: var(--clr-yellow);
-    margin-block: 2px;
-    
 }
 
 .title-container p {
     text-align: center;
-    font-size: 1rem;
-    /* font-weight: bold; */
-    color: var(--clr-wall);
-    margin-block: 2px;
-    
+    font-size: 1.8rem;
+    color: var(--clr-wall);    
 }
 
 #end-message {
