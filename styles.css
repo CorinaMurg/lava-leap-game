@@ -17,6 +17,12 @@ body {
     background-color: var(--clr-gray);
 }
 
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
 main {
     display: flex;
     flex-direction: column;
@@ -32,9 +38,9 @@ main {
     margin-inline: auto;
     margin-top: 40px;
     /* margin-block: auto; */
-    border: 10px solid rgb(44, 41, 41);
+    /* border: 10px solid rgb(44, 41, 41);
     border-radius: 5px;
-    box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 10px #000000, 0 5px 15px rgba(0,0,0,0.5); */
 }
 
 #game-start-container {
@@ -43,9 +49,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 40px;
+    gap: 20px;
 }
+
 .background    { 
     background: var(--clr-blue);
     table-layout: fixed;
@@ -89,7 +97,7 @@ main {
     background-color: var(--clr-gray);
     margin-inline: auto;
     padding: 1px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 h1 {
@@ -97,12 +105,7 @@ h1 {
     font-size: 5rem;
     font-weight: bold;
     color: var(--clr-yellow);
-}
-
-.title-container p {
-    text-align: center;
-    font-size: 1.8rem;
-    color: var(--clr-wall);    
+    margin-block: 10px;
 }
 
 #end-message {
@@ -117,10 +120,11 @@ h1 {
 
 #restart-button, #start-button {
     display: none;
-    position: fixed;
+    /* position: fixed;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    width: 20rem;
     padding: 10px;
     font-family: "Montserrat", sans-serif;
     font-size: 1.3rem;
@@ -132,10 +136,11 @@ h1 {
     color: var(--clr-yellow);
 }
 
-/* #restart-button:hover {
-    background-color: var(--clr-gray-player);
-    color: var(--clr-white);
-}    */
+#start-button {
+    margin-top: 40px;
+    margin-inline: auto;
+}
+
 
 #lives-container {
     font-size: 1.2rem;
@@ -182,4 +187,116 @@ h1 {
 }
 
 
-  
+/* welcome page */
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+p {
+    margin-block: 15px;
+}
+
+.row-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 0px;
+    width: 100%;
+    gap: 40px;
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+.gap-40 {
+    gap: 40px;
+}
+
+.about-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--clr-wall);    
+}
+
+.coins-animation {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 20px;
+}
+
+.front-coin {
+    width: 15px;
+    height: 15px;
+    background-color: var(--clr-yellow);
+    position: relative;
+    display: inline-block;
+    animation: front-wobble 3s infinite;
+    margin-top: 5px;
+}
+
+@keyframes front-wobble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* .animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+} */
+
+/* .animation > div {
+    flex-basis: 50%;
+} */
+
+.animation > div {
+    flex: 0 0 auto;
+}
+
+.row-container > div:first-child {
+    flex-basis: 50%; /* Sets the first child to take 70% of the flex container's space */
+}
+
+.row-container > div:last-child {
+    flex-basis: 50%; /* Sets the second child to take the remaining 30% of the space */
+}
+.front-lava {
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr-lava);
+    /* position: relative; */
+    display: inline-block;
+    animation: moveLava 5s ease-in-out infinite;
+    margin-right: -80px;
+    margin-top: 5px;
+}
+
+/* @keyframes moveLava {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-20px); }
+} */
+
+@keyframes moveLava {
+    0%, 100% { transform: translateX(0); } /* Start and end at the original position */
+    50% { transform: translateX(340%); } /* Move to the far end of the container */
+}
+

@@ -33,7 +33,7 @@ function initializeGame() {
     // dom.title.style.display = 'none';
     dom.gameStartContainer.style.display = 'none';
     dom.gameEndContainer.style.display = 'none';
-    dom.gameStatsContainer.style.display = "none";  
+    dom.gameStatsContainer.style.display = "block";  
 }
 
 async function runGame(plans, Display) {

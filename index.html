@@ -16,21 +16,46 @@
             <div id="game-start-container">
                 <div class="title-container" id="title-container">
                     <h1>Lava Leap</h1>
-                    
                 </div>
-                <div id="game-about-container">
-                    <div id="capture-container">
-                        <p>Capture the gold.</p>
-                    </div>
-                    <div id="elude-container">
-                        <p>Capture the gold.</p>
-                    </div>
-                    <div id="levels-container">
-                        <p>Levels</p>
 
+                <div id="game-about-container" class="vertical-container">
+                    <div class="row-container capture-container">
+                        <div class="align-right">
+                            <p class="about-text">Capture the gold</p>
+                        </div>
+                        <div class="align-left coins-animation animation">
+                            <div class="front-coin"></div> 
+                            <div class="front-coin"></div>
+                            <div class="front-coin"></div>
+                        </div>
+                    </div>
+
+                    <div class="row-container elude-container">
+                        <div class="align-right">
+                            <p class="about-text">Elude the flames</p>
+                        </div>
+                        <div class="align-left lava-animation animation">
+                            <div class="front-lava"></div>
+                        </div>
+                    </div>
+
+                    <div class="row-container levels-container">
+                        <div class="align-right">
+                            <p class="about-text">Levels</p>
+                        </div>
+                        <div class="align-left animation">
+                            5
+                        </div>
+                    </div>
+                    <div class="row-container levels-container">
+                        <div class="align-right">
+                            <p class="about-text">Lives</p>
+                        </div>
+                        <div class="align-left animation">You choose!</div>
                     </div>
                 </div>
-                <div id="start-button-container">
+
+                <div id="start-button-container" class="container start-button-container">
                     <button id="start-button">Start Game</button>
                 </div>
             </div>
