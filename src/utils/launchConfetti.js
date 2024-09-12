@@ -8,7 +8,7 @@ export function launchConfetti() {
     function frame() {
         if (Date.now() < end) {
             confetti({
-                particleCount: 10,
+                particleCount: 7,
                 angle: 90,
                 spread: 70,
                 origin: { x: Math.random(), y: 0 },
