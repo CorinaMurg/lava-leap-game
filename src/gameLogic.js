@@ -1,5 +1,5 @@
 import { Level, State } from './classes.js';
-import { DOMDisplay } from './domClass.js';
+import { DOMDisplay } from './displayClass.js';
 import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
@@ -74,6 +74,7 @@ async function runGame(plans, Display) {
         initializeCoinDisplays(currentLevel); 
 
         updateLevelDisplay(level);
+
         let status = await runLevel(currentLevel, Display);
 
         if (status === "lost") {
@@ -103,9 +104,6 @@ async function runGame(plans, Display) {
 
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
-    // initialize the game state for the newly created level; each level starts with a clean slate, with initial 
-    // settings (actor positions, coins,) reset to their starting conditions as defined by the level design. 
-    // crucial for games where each level's outcome does not depend on the previous levels
     let state = State.start(level);
     let ending = 1;
     return new Promise(resolve => {
