@@ -1,5 +1,5 @@
 import { Level, State } from './classes.js';
-import { DOMDisplay } from './dom.js';
+import { DOMDisplay } from './domClass.js';
 import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
