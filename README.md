@@ -5,9 +5,8 @@
 
 Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game features:
 - player movement
-- obstacles
+- obstacles (lava patterns that the player has to avoid)
 - five levels
-- lava patterns that the player has to avoid
 - coins that the player has to collect in order to move to the next level
 <br>
 
@@ -18,10 +17,11 @@ Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game
 - Should your player run out of lives or successfully complete all levels, the game will come to an end.
 - While on the home page, set the number of **lives** by adding a query parameter in the URL: `https://lava-leap.netlify.app/?lives=number`. Replace `number` with the desired number of lives and press **Enter**. For example, use `https://lava-leap.netlify.app/?lives=5` to start the game with 5 lives. 
 <br>
-NOTE: Right now, you can only change the number of lives on the home page and before the start of a game. Changing the number of lives once the game has started will restart the game.
-
 
 💡 Want an extra challenge or need some help? Adjust your player's number of lives directly in the URL.
+<br>
+NOTE: Right now, you can only change the number of lives on the home page and before the start of a game. Changing the number of lives once the game has started will restart the game.
+<br>
 
 🔄 If you've run out of lives or completed all levels, I added end-of-game messages and a restart button so you can always try again!
 <br>
@@ -31,7 +31,7 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 <br>
 
 ## Code Source and Added Enhancements
-This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience. 
+This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience:
 
 - used modules to restructure the codebase 
 - added intro page and option to adjust the number of lives in the url
@@ -39,7 +39,7 @@ This project began as a direct application from the "Eloquent JavaScript" book, 
 - upgraded the color theme for better accessibility
 - made game stats (level number, coins collected and coins remaining) available during play
 <br>
-And guess what? Now I know how to use the “Constructor”! 
+And guess what? Now I know how to use the “Constructor”! 😎
 <br>
 
 ## Upcoming Changes
@@ -51,7 +51,6 @@ Right now I'm working on adding some extra cool features and more game levels (a
 - visual and sound effects during collisions
 - a second player (should it be a Good one or a Bad one?! 🤔)
 - option to adjust the speed of moving elements
-<br>
 
 ### 2. Tooling Upgrades
 - Migrate to TypeScript
@@ -60,12 +59,12 @@ Right now I'm working on adding some extra cool features and more game levels (a
 
 ## PS: A quick overview of all the (seven!) Classes and their roles:
 
-1. **Level**: Represents the game level with a 2D grid of cells, specifying where walls, actors (e.g., player, lava, coins) are located.
-2. **State**: Represents the current state of the game, including the current level, actors, and the game's status (e.g., playing, won, lost).
+1. **Level**: Represents the game level with a 2D grid of cells, specifying where walls, actors (player, lava, coins) are located.
+2. **State**: Represents the current state of the game, including the current level, actors, and the game's status (playing, won, lost).
 3. **Vector**: Represents 2D vectors and is used for position and movement calculations.
 4. **Player**: Represents the player character, which can move around the game grid.
-5. **Lava**: Represents the moving lava obstacles in the game. The lava can move horizontally, vertically, or even stay still.
-6. **Coin**: Represents collectible items that the player needs to gather to win the level.
+5. **Lava**: Represents the moving lava obstacles in the game. The lava can move horizontally, vertically, or be static.
+6. **Coin**: Represents the items that the player needs to collect to win the level.
 7. **DOMDisplay**: Renders the game's state to the DOM, making the game playable in a browser.
 <br>
-<br>Plus, various utility functions that assist in managing player input, game animation, and interactions between game entities.
+<br>Plus, various utility functions that assist in managing player input, game animation, and interactions between actors.
