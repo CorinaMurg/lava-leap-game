@@ -255,15 +255,28 @@ p {
     50% { transform: translateX(340%); } 
 }
 
-.lives-number {
+.levels-number {
     color: var(--clr-red);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.lives-container {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+}
+
+#welcome-lives-number {
+    color: var(--clr-yellow);
     font-size: 1.4rem;
     font-weight: bold;
 }
 
 .you-choose {
     color: var(--clr-yellow);
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 

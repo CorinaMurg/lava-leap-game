@@ -5,8 +5,19 @@ import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 import { launchConfetti } from './utils/launchConfetti.js';
 
+let userLives;
+let lives;
 
 function welcome() {
+    userLives = parseQuery(window.location.search);
+    lives = Number(userLives.lives) || 3; 
+
+    const updateLivesDisplay = () => {
+        dom.welcomeLivesNumber.textContent = `${lives}`;
+    };
+
+    updateLivesDisplay();
+
     dom.gameStartContainer.style.display = 'block';
     dom.startButton.style.display = 'block';
     dom.gameEndContainer.style.display = 'none';
@@ -34,8 +45,6 @@ function restartGame() {
     }, 3000);  
 }
 
-let userLives;
-let lives;
 
 function initializeGame() {
     userLives = parseQuery(window.location.search);

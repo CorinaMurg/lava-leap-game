@@ -5,6 +5,7 @@ export const dom = {
     startButton: document.getElementById('start-button'),
     title: document.getElementById('title-container'),
     livesContainer: document.getElementById('lives-container'),
+    welcomeLivesNumber: document.getElementById('welcome-lives-number'),
     levelNumber: document.getElementById('level-number'),
     totalLevels: document.getElementById('total-levels'),
     coinsCollectedContainer: document.getElementById('coins-collected-container'),
