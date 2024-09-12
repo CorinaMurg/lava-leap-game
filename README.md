@@ -14,11 +14,12 @@ Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game
 - Move your player using the arrow keys or the W, A, D keys. 
 - The goal is to have it collect all the coins without making contact with the lava. Then it can progress to the next level.
 - A collision with the lava means the level restarts.
+- The default number of lives is 3.
 - Should your player run out of lives or successfully complete all levels, the game will come to an end.
-- While on the home page, set the number of **lives** by adding a query parameter in the URL: `https://lava-leap.netlify.app/?lives=number`. Replace `number` with the desired number of lives and press **Enter**. For example, use `https://lava-leap.netlify.app/?lives=5` to start the game with 5 lives. 
 <br>
 
 💡 Want an extra challenge or need some help? Adjust your player's number of lives directly in the URL.
+- While on the home page, set the number of **lives** by adding a query parameter in the URL: `https://lava-leap.netlify.app/?lives=number`. Replace `number` with the desired number of lives and press **Enter**. For example, use `https://lava-leap.netlify.app/?lives=5` to start the game with 5 lives. 
 <br>
 NOTE: Right now, you can only change the number of lives on the home page and before the start of a game. Changing the number of lives once the game has started will restart the game.
 <br>
