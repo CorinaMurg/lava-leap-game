@@ -19,8 +19,15 @@ function startGame() {
 }
 
 function restartGame() {
-    initializeGame();
-    runGame(GAME_LEVELS, DOMDisplay);
+    dom.restartButton.textContent = "Loading...";
+    dom.restartButton.disabled = true;
+    dom.endMessageOne.style.display = 'none';
+    dom.endMessageTwo.style.display = 'none';
+    setTimeout(() => {
+        initializeGame();
+        runGame(GAME_LEVELS, DOMDisplay);
+        dom.restartButton.textContent = "Restart Game";  
+    }, 3000);  
 }
 
 let userLives;
