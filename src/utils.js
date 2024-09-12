@@ -1,12 +1,12 @@
 
-function parseQuery(queryString) {
-    let query = {};
-    let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
-    for (let i = 0; i < pairs.length; i++) {
-        let pair = pairs[i].split('=');
-        query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+function parseURLQuery(query) {
+    let result = {};
+    let keyValuePairs = (query[0] === '?' ? query.slice(1) : query).split('&');
+    for (let i = 0; i < keyValuePairs.length; i++) {
+        let pair = keyValuePairs[i].split('=');
+        result[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
     }
-    return query;
+    return result;
 }
 
 function trackKeys(keys) {
@@ -25,4 +25,4 @@ function trackKeys(keys) {
   
 const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp", "w", "a", "s", "d"]);
 
-export { parseQuery, arrowKeys };
+export { parseURLQuery, arrowKeys };

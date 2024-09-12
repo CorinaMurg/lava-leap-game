@@ -1,6 +1,6 @@
 import { Level, State } from './classes.js';
 import { DOMDisplay } from './displayClass.js';
-import { parseQuery, arrowKeys } from './utils.js';
+import { parseURLQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 import { launchConfetti } from './utils/launchConfetti.js';
@@ -9,7 +9,7 @@ let userLives;
 let lives;
 
 function welcome() {
-    userLives = parseQuery(window.location.search);
+    userLives = parseURLQuery(window.location.search);
     lives = Number(userLives.lives) || 3; 
 
     const updateLivesDisplay = () => {
@@ -47,7 +47,7 @@ function restartGame() {
 
 
 function initializeGame() {
-    userLives = parseQuery(window.location.search);
+    userLives = parseURLQuery(window.location.search);
     lives = Number(userLives.lives) || 3; 
 
     dom.gameStartContainer.style.display = 'none';
