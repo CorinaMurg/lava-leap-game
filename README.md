@@ -36,12 +36,11 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 ## Code Source and Added Enhancements
 <br>This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience. 
 
-- using modules to restructure the codebase 
-- adding intro page
-- adding end-game messages and a restart button
-- allowing the user to adjust the number of lives in the url
-- modifying the color theme for better accessibility
-- making game stats (level number, coins collected and remaining) available during play
+- used modules to restructure the codebase 
+- added intro page and option to adjust the number of lives in the url
+- added end-game messages and a restart button
+- upgraded the color theme for better accessibility
+- made game stats (level number, coins collected and coins remaining) available during play
 <br>
 And guess what? Now I know how to use the “Constructor”! 
 
