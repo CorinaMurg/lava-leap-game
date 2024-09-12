@@ -31,20 +31,21 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 
 <br>This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted by 
 
-- restructuring the codebase
+- using modules to restructure the codebase 
+- adding intro page
 - adding end-game messages and a restart button
 - allowing the user to adjust the number of lives in the url
 - modifying the color theme for better accessibility
-- game stats: level number, coins collected and remaining
+- making game stats (level number, coins collected and remaining) available during play
 <br>
 And guess what? Now I know how to use the “Constructor”! 
 
 <br>Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️):
 <br>
-- pause option
+- pause option between levels
+- visual and sound effects during collisions
 - a second player (should it be a Good one or a Bad one?! 🤔)
 - option to adjust the speed of moving elements
-- improve the UI
 <br>
 
 ## PS: A quick overview of all the (seven!) Classes and their roles:
