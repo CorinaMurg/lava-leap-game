@@ -54,7 +54,7 @@ function elt(name, attrs, ...children) {
 const scale = 20;
 
 function drawGrid(level) {
-    return elt("table", {class: "background", style: `width: ${level.width * scale}px`}, ...level.rows.map(row =>
+    return elt("table", {class: "background", style: `width: ${level.width * scale}px`}, ...level.grid.map(row =>
         elt("tr", {style: `height: ${scale}px`}, ...row.map(type => elt("td", {class: type})))
     ));
 }

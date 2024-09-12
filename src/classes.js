@@ -1,12 +1,12 @@
 // re: structure and challenges.
 class Level {
     constructor(plan) {
-        let rows = plan.trim().split("\n").map(char => [...char]);
-        this.height = rows.length;
-        this.width = rows[0].length;
+        let grid = plan.trim().split("\n").map(char => [...char]);
+        this.height = grid.length;
+        this.width = grid[0].length;
         this.startActors = [];
     
-        this.rows = rows.map((row, y) => {
+        this.grid = grid.map((row, y) => {
             return row.map((ch, x) => {
                 let type = levelChars[ch];
                 if (typeof type === "string") return type;
@@ -114,7 +114,7 @@ Level.prototype.touches = function(pos, size, type) {
     for (let y = yStart; y < yEnd; y++) {
       for (let x = xStart; x < xEnd; x++) {
         let isOutside = x < 0 || x >= this.width || y < 0 || y >= this.height;
-        let here = isOutside ? "wall" : this.rows[y][x];
+        let here = isOutside ? "wall" : this.grid[y][x];
         if (here === type) return true;
       }
     }

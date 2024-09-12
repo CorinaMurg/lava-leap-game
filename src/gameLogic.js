@@ -56,7 +56,7 @@ function initializeGame() {
 }
 
 async function runGame(plans, Display) {
-    initializeGame();
+    // initializeGame();
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `${lives}`;
     };
@@ -71,10 +71,13 @@ async function runGame(plans, Display) {
 
     for (let level = 0; level < plans.length && lives > 0;) {
         let currentLevel = new Level(plans[level]);
+        // coinsRemaining is updated from level; coinsCollected is initialized at 0;
         initializeCoinDisplays(currentLevel); 
 
         updateLevelDisplay(level);
 
+        // runLevel returns a promise
+        // coins remaining/collected will be updated here
         let status = await runLevel(currentLevel, Display);
 
         if (status === "lost") {
