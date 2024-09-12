@@ -3,6 +3,7 @@ import { DOMDisplay } from './dom.js';
 import { parseQuery, arrowKeys } from './utils.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
+import { launchConfetti } from './utils/launchConfetti.js';
 
 
 function welcome() {
@@ -76,9 +77,10 @@ async function runGame(plans, Display) {
     } else {
         dom.endMessageOne.textContent = "Congratulations! 🚀";
         dom.endMessageTwo.textContent = "You won!";
+        launchConfetti();
     }
 
-    dom.restartButton.focus();
+    // dom.restartButton.focus();
 }
 
 function runLevel(level, Display) {
@@ -137,5 +139,5 @@ function initializeCoinDisplays(level) {
     updateCoinsRemainingDisplay(level.remainingCoins); 
 }
 
-export { runAnimation, runLevel, runGame, startGame, restartGame, welcome };
+export { runAnimation, runLevel, runGame, startGame, restartGame, welcome, launchConfetti };
 
