@@ -148,7 +148,7 @@ function overlap(actor1, actor2) {
 }
 
 Lava.prototype.collide = function(state) {
-    return new State(state.level, state.actors, "lost");
+    return new State(state.level, state.actors, "lost", state.collectedCoins);
 };
 
 Lava.prototype.update = function(time, state) {

@@ -99,8 +99,6 @@ async function runGame(plans, Display) {
         dom.endMessageTwo.textContent = "You won!";
         launchConfetti();
     }
-
-    // dom.restartButton.focus();
 }
 
 function runLevel(level, Display) {
