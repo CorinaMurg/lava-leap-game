@@ -5,12 +5,10 @@
 
 Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game features:
 - player movement
-- platform obstacles
+- obstacles
 - five levels
 - lava patterns that the player has to avoid
 - coins that the player has to collect in order to move to the next level
-- 
-
 <br>
 
 ## 🎮 Game Flow
@@ -25,16 +23,14 @@ Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game
 💡 Want an extra challenge or need some help? Adjust your player's number of lives directly in the URL.
 
 🔄 If you've run out of lives or completed all levels, I added end-of-game messages and a restart button so you can always try again!
-
 <br>
-
 
 ## Why I Wanted to Create This Project
 I am a self-taught developer focused on frontend and accessibility. For the longest time, ES6 Classes and Constructors just didn't make sense, and assumed they were some secret tools for backend developers. Fortunately, a tech meetup encounter with [Ean Moore](https://www.linkedin.com/in/ean-moore-948357103), a Senior Software Engineer and game developer, changed my perspective. Ean is one of the most passionate JavaScript developers I've ever met! He spoke about game development with such enthusiasm that it sparked my curiosity — even though I don't play video games!
-
+<br>
 
 ## Code Source and Added Enhancements
-<br>This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience. 
+This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience. 
 
 - used modules to restructure the codebase 
 - added intro page and option to adjust the number of lives in the url
@@ -43,9 +39,10 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 - made game stats (level number, coins collected and coins remaining) available during play
 <br>
 And guess what? Now I know how to use the “Constructor”! 
+<br>
 
 ## Upcoming Changes
-<br>Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️).
+Right now I'm working on adding some extra cool features and more game levels (although, I must admit, I keep getting stuck on level 2 ☹️).
 <br>
 
 ### 1. Gameplay Enhancements
@@ -56,9 +53,9 @@ And guess what? Now I know how to use the “Constructor”!
 <br>
 
 ### 2. Tooling Upgrades
-
 - Migrating to TypeScript
 - Setting Up Automated Testing for code quality and to prevent bugs.
+<br>
 
 ## PS: A quick overview of all the (seven!) Classes and their roles:
 
