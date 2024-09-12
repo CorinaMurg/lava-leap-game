@@ -23,10 +23,14 @@ function restartGame() {
     dom.restartButton.disabled = true;
     dom.endMessageOne.style.display = 'none';
     dom.endMessageTwo.style.display = 'none';
+    document.body.tabIndex = 0;  
+    document.body.focus(); 
+
     setTimeout(() => {
         initializeGame();
         runGame(GAME_LEVELS, DOMDisplay);
         dom.restartButton.textContent = "Restart Game";  
+        dom.restartButton.disabled = false;
     }, 3000);  
 }
 
