@@ -23,7 +23,7 @@ Lava Leap is a 2D platformer game implemented using vanilla JavaScript. The game
 <br>
 NOTE: Right now, you can only change the number of lives on the home page and before the start of a game. Changing the number of lives once the game has started will restart the game.
 <br>
-
+<br>
 🔄 If you've run out of lives or completed all levels, I added end-of-game messages and a restart button so you can always try again!
 <br>
 
