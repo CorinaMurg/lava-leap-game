@@ -9,9 +9,8 @@ welcome();
 
 document.addEventListener('DOMContentLoaded', useDefaultLivesInURL);
 
-document.addEventListener('DOMContentLoaded', function() {
-    openModal();  
-});
+document.addEventListener('DOMContentLoaded', openModal());
+
 
 dom.startButton.addEventListener('click', startGame);
 

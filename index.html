@@ -71,18 +71,31 @@
             <div id="modal-overlay" class="modal-overlay">
                 <div id="modal" class="modal" tabindex="-1">
                     <h4>Choose Lives</h4>
-                    <p>Set the number of lives directly here, or append <code>?lives=number</code> to the URL.</p>
+                    <p class="vertical-paragraph">
+                        <span>
+                            Set the number of lives directly here, or
+                        </span> 
+                        <span>
+                            append <code>?lives=number</code> to the URL.
+                        </span>
+                    </p>
+                    <div id="error-message-container" class="error-message-container">
+                        <p class="vertical-paragraph">
+                            <span><span class="emoji">⚠️</span>Enter a number between 1 and 10, or</span>
+                            <span>press Cancel to keep the default number of 3.</span>  
+                        </p>
+                    </div>
                     <form id="modal-form">
                         <div class="modal-input-container">
                             <label for="modal-input">
-                                Enter number of lives
+                                Enter number of lives (max 10)
                             </label>
                             <input id="modal-input" class="modal-input" name="lives" autocomplete="off">
                         </div>
                         
                         <div class="buttons-container">
                             <button type="button" class="modal-button" id="modal-close">Cancel</button>
-                            <button type="submit" class="modal-button" id="modal-close">Save</button>
+                            <button type="submit" class="modal-button" id="modal-submit">Save</button>
                         </div>
                         
                     </form>

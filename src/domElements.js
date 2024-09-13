@@ -16,6 +16,7 @@ export const dom = {
     modalClose: document.getElementById('modal-close'),
     modalSubmit: document.getElementById('modal-submit'),
     modalInput: document.getElementById('modal-input'),
+    errorMessage: document.getElementById('error-message-container'),
 
     // stats
     livesContainer: document.getElementById('lives-container'),
