@@ -169,7 +169,7 @@ h1 {
     /* height: 100vh; */
 }
 
-p {
+#game-start-container p {
     margin-block: 15px;
 }
 
@@ -276,6 +276,19 @@ p {
 
 .you-choose {
     color: var(--clr-yellow);
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.lives-button {
+    background-color: var(--clr-player);
+    padding: 4px 13px;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-left: 10px;
+    cursor: pointer;
     font-size: 0.9rem;
     font-weight: bold;
 }
