@@ -6,6 +6,8 @@ function openModal() {
         event.stopPropagation();
         dom.modalOverlay.style.display = 'flex';
         dom.modal.style.display = 'flex';
+        dom.startButton.disabled = true;
+        dom.modal.focus();
     });
       
     dom.closeModal.addEventListener('click', function() {
@@ -20,7 +22,7 @@ function openModal() {
         dom.livesContainer.textContent = lives; 
 
         updateURLWithLives(lives);
-        
+
         dom.modalOverlay.style.display = 'none';
         dom.modal.style.display = 'none';
         dom.livesInput.value = '';

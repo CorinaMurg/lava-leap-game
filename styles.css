@@ -320,6 +320,15 @@ h1 {
     gap: 20px;
     padding: 20px 40px;
   }
+
+  .modal code {
+    background-color: rgb(91, 2, 2);
+    padding: 1px 4px;
+  }
+
+  .modal:focus {
+    outline: none;
+  }
   
   .modal-button {
     padding: 10px;
