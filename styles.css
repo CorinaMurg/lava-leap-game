@@ -494,5 +494,6 @@ h1 {
     font-weight: bold;
     color: var(--clr-red);
     margin-bottom: 5px;
+    /* margin-inline: auto; */
 }
 
