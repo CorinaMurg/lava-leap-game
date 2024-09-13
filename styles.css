@@ -4,10 +4,11 @@
     --clr-lava: #bb3e03;
     --clr-dead: rgb(160, 64, 64);
     --clr-gray: rgb(64, 64, 64);
-    --clr-player: green;
+    --clr-green: #069306;
     --clr-wall: rgb(210, 206, 206);
     --clr-yellow: #fbbc04;
     --clr-red: red;
+    --clr-darkRed: rgb(91, 2, 2);
     --clr-endBlue: #329cc3;
 }
 
@@ -63,7 +64,7 @@ main {
 }
 
 .player { 
-    background: var(--clr-player);   
+    background: var(--clr-green);   
 }
 
 .lost .player {
@@ -71,7 +72,7 @@ main {
 }
 
 .won .player {
-    box-shadow: -4px -7px 8px var(--clr-white), 4px -7px 8px var(--clr-white);
+    box-shadow: -4px -7px 8px var(--clr-green), 4px -7px 8px var(--clr-green);
 }
 
 .title-container {
@@ -294,7 +295,7 @@ h1 {
 }
 
 .lives-button {
-    background-color: #088808;
+    background-color: var(--clr-green);
     padding: 5px 15px;
     border: none;
     border-radius: 3px;
@@ -319,7 +320,7 @@ h1 {
     background-color: rgba(0,0,0,0.4);
   }
   
-  .modal {
+.modal {
     background-color: var(--clr-blue);
     width: 26rem;
     height: 20rem;
@@ -331,71 +332,64 @@ h1 {
     margin-inline: auto;
     gap: 20px;
     padding: 20px 40px;
-  }
+}
 
-  .modal code {
-    background-color: rgb(91, 2, 2);
+.modal code {
+    background-color: var(--clr-darkRed);
     padding: 1px 4px;
-  }
+}
 
-  .modal:focus {
+.modal:focus {
     outline: none;
-  }
-  
-  .modal-button {
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-  }
+}
 
-  .lives-input {
+.modal-input {
     background-color: var(--clr-wall);
     border: none;
     padding: 5px;
     width: 40px;
-  }
+}
 
-  .modal p {
-    margin-block: 10px;
+.modal p {
+    margin-bottom: 30px;
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.5;
     color: var(--clr-wall);
-  }
+}
 
-  .modal h4 {
+.modal h4 {
     color: var(--clr-yellow);
     font-size: 1.8rem;
     font-weight: normal;
-    margin-block: 20px;
-  }
+    margin-block: 0px;
+}
 
-  .modal-input-container {
+.modal-input-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-  }
+}
 
-  .modal label {
+.modal label {
     color: var(--clr-yellow);
-  }
+}
 
-  .modal-button {
-    background-color: #088808;
+.modal-button {
+    background-color: var(--clr-green);
     color: black;
+    font-family: "Montserrat", sans-serif;
     font-size: 1.1rem;
     font-weight: bold;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     padding: 5px 10px;
-    width: 10rem;
+    width: 9rem;
     margin-top: 20px;
-  }
-  
+    margin-inline: 20px;
+}
 
 
 /************ game stats *****************/

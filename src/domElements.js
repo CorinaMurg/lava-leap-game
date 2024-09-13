@@ -13,9 +13,9 @@ export const dom = {
     livesButton: document.getElementById('lives-button'),
     modalOverlay: document.getElementById('modal-overlay'),
     modal: document.getElementById('modal'),
-    closeModal: document.getElementById('close-modal'),
-    submitLives: document.getElementById('submit-lives'),
-    livesInput: document.getElementById('lives-input'),
+    modalClose: document.getElementById('modal-close'),
+    modalSubmit: document.getElementById('modal-submit'),
+    modalInput: document.getElementById('modal-input'),
 
     // stats
     livesContainer: document.getElementById('lives-container'),

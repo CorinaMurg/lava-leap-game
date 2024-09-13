@@ -9,15 +9,15 @@ function openModal() {
         dom.modal.focus();
     });
       
-    dom.closeModal.addEventListener('click', function() {
+    dom.modalClose.addEventListener('click', function() {
         dom.modalOverlay.style.display = 'none';
         dom.modal.style.display = 'none';
         dom.livesButton.focus();
     });
     
-    dom.submitLives.addEventListener('click', function(event) {
+    dom.modalSubmit.addEventListener('click', function(event) {
         event.preventDefault(); 
-        const lives = dom.livesInput.value;
+        const lives = dom.modalInput.value;
         dom.welcomeLivesNumber.textContent = lives;
         dom.livesContainer.textContent = lives; 
 
@@ -25,7 +25,7 @@ function openModal() {
 
         dom.modalOverlay.style.display = 'none';
         dom.modal.style.display = 'none';
-        dom.livesInput.value = '';
+        dom.modalInput.value = '';
     });
     
     
