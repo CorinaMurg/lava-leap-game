@@ -67,6 +67,29 @@
                 </div>
             </div>
 
+            <!-- modal -->
+            <div id="modal-overlay" class="modal-overlay">
+                <div id="modal" class="modal">
+                    <h4>Choose Lives</h4>
+                    <p>Set the number of lives directly here, or append <code>?lives=number</code> to the URL.</p>
+                    <form id="modal-form">
+                        <div class="modal-input-container">
+                            <label for="lives-input">
+                                Enter number of lives
+                            </label>
+                            <input id="lives-input" class="lives-input" name="lives" autocomplete="off">
+                        </div>
+                        
+                        <div>
+                            <button type="button" class="modal-button" id="close-modal">Cancel</button>
+                            <button type="submit" class="modal-button" id="submit-lives">Save</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+  
+
             <!-- game end -->
             <div id="game-end-container">
                 <div class="end-message">
@@ -133,6 +156,7 @@
         <script type="module" src="./src/gameLogic.js"></script>
         <script type="module" src="./src/levels.js"></script>
         <script type="module" src="./src/utils/launchConfetti.js"></script>
+        <script type="module" src="./src/modal.js"></script>
         <script type="module" src="main.js"></script>
   </body>
 
