@@ -6,13 +6,13 @@ function openModal() {
         event.stopPropagation();
         dom.modalOverlay.style.display = 'flex';
         dom.modal.style.display = 'flex';
-        dom.startButton.disabled = true;
         dom.modal.focus();
     });
       
     dom.closeModal.addEventListener('click', function() {
         dom.modalOverlay.style.display = 'none';
         dom.modal.style.display = 'none';
+        dom.livesButton.focus();
     });
     
     dom.submitLives.addEventListener('click', function(event) {

@@ -137,7 +137,7 @@ h1 {
 }
 
 #start-button {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-inline: auto;
 }
 
@@ -145,7 +145,7 @@ h1 {
 /* welcome page */
 
 #game-start-container {
-    max-width: 42rem;
+    width: 30rem;
     max-height: 28rem;
     display: flex;
     flex-direction: column;
@@ -153,12 +153,23 @@ h1 {
     justify-content: space-between;
     margin-top: 40px;
     gap: 20px;
+    padding: 10px;
+}
+
+.title-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #game-about-container {
     background-color: var(--clr-blue);
-    border: 2px solid var(--clr-wall);
-    border-radius: 5px;
+    width: 100%;
+    /* padding: 10px; */
+    margin-inline: auto;
+    /* border: 2px solid var(--clr-wall);
+    border-radius: 5px; */
 }
 
 .vertical-container {
@@ -180,6 +191,14 @@ h1 {
     margin-block: 0px;
     width: 100%;
     /* gap: 20px; */
+}
+
+.row-container > div:first-child {
+    flex-basis: 50%; 
+}
+
+.row-container > div:last-child {
+    flex-basis: 50%; 
 }
 
 .align-right {
@@ -232,14 +251,6 @@ h1 {
     flex: 0 0 auto;
 }
 
-.row-container > div:first-child {
-    flex-basis: 50%; 
-}
-
-.row-container > div:last-child {
-    flex-basis: 50%; 
-}
-
 .front-lava {
     width: 20px;
     height: 20px;
@@ -283,13 +294,14 @@ h1 {
 }
 
 .lives-button {
-    background-color: var(--clr-player);
-    padding: 4px 13px;
-    border: 2px solid black;
+    background-color: #088808;
+    padding: 5px 15px;
+    border: none;
     border-radius: 3px;
     margin-left: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -334,6 +346,8 @@ h1 {
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
   }
 
   .lives-input {
@@ -370,7 +384,7 @@ h1 {
   }
 
   .modal-button {
-    background-color: var(--clr-player);
+    background-color: #088808;
     color: black;
     font-size: 1.1rem;
     font-weight: bold;

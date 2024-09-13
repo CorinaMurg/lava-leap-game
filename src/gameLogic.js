@@ -19,7 +19,7 @@ function welcome() {
 
     updateLivesDisplay();
 
-    dom.gameStartContainer.style.display = 'block';
+    dom.gameStartContainer.style.display = 'flex';
     dom.startButton.style.display = 'block';
     dom.gameEndContainer.style.display = 'none';
     dom.gameStatsContainer.style.display = "none";  
