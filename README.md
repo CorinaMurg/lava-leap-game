@@ -35,8 +35,9 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience:
 
 - used modules to restructure the codebase 
-- added intro page and option to adjust the number of lives in the url
-- added end-game messages and a restart button
+- added intro page with option to input number of lives
+- option to adjust the number of lives in the url
+- added a start button, end-game messages, and a restart button
 - upgraded the color theme for better accessibility
 - made game stats (level number, coins collected and coins remaining) available during play
 <br>
@@ -53,14 +54,22 @@ Right now I'm working on adding some extra cool features and more game levels (a
 - a second player (should it be a Good one or a Bad one?! 🤔)
 - option to adjust the speed of moving elements
 
+### Bugs
+- using the browser's back button, updates the url, but the game does not update the number of lives from the new query
+
+
 ### 2. Tooling Upgrades
 - Migrate to TypeScript
-- Set up Automated Testing for code quality and to prevent bugs
+- Set up Automated Testing 
 <br>
 
-## PS: A quick overview of all the (seven!) Classes and their roles:
 
-1. **Level**: Represents the game level with a 2D grid of cells, specifying where walls, actors (player, lava, coins) are located.
+## Get in touch!
+Have any great ideas to improve the game? Let's collaborate!
+
+<!-- ## PS: A quick overview of all the (seven!) Classes and their roles: -->
+
+<!-- 1. **Level**: Represents the game level with a 2D grid of cells, specifying where walls, actors (player, lava, coins) are located.
 2. **State**: Represents the current state of the game, including the current level, actors, and the game's status (playing, won, lost).
 3. **Vector**: Represents 2D vectors and is used for position and movement calculations.
 4. **Player**: Represents the player character, which can move around the game grid.
@@ -68,4 +77,4 @@ Right now I'm working on adding some extra cool features and more game levels (a
 6. **Coin**: Represents the items that the player needs to collect to win the level.
 7. **DOMDisplay**: Renders the game's state to the DOM, making the game playable in a browser.
 <br>
-<br>Plus, various utility functions that assist in managing player input, game animation, and interactions between actors.
+<br>Plus, various utility functions that assist in managing player input, game animation, and interactions between actors. -->
