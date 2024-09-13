@@ -1,6 +1,7 @@
 import { Level, State } from './classes.js';
 import { DOMDisplay } from './displayClass.js';
-import { parseURLQuery, arrowKeys } from './utils.js';
+import { arrowKeys } from './utils/arrowKeys.js';
+import { parseURLQuery } from './utils/parseURLQuery.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
 import { launchConfetti } from './utils/launchConfetti.js';

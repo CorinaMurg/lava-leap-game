@@ -3,8 +3,11 @@ import { startGame } from './src/gameLogic.js';
 import { restartGame } from './src/gameLogic.js';
 import { dom } from './src/domElements.js';
 import { openModal } from './src/modal.js';
+import { useDefaultLivesInURL } from './src/utils/useDefaultLivesInURL.js';
 
 welcome();
+
+document.addEventListener('DOMContentLoaded', useDefaultLivesInURL);
 
 document.addEventListener('DOMContentLoaded', function() {
     openModal();  

@@ -1,4 +1,5 @@
 import { dom } from './domElements.js';
+import { updateURLWithLives } from './utils/updateURLWithLives.js';
 
 function openModal() {
     dom.livesButton.addEventListener('click', function(event) {
@@ -17,6 +18,9 @@ function openModal() {
         const lives = dom.livesInput.value;
         dom.welcomeLivesNumber.textContent = lives;
         dom.livesContainer.textContent = lives; 
+
+        updateURLWithLives(lives);
+        
         dom.modalOverlay.style.display = 'none';
         dom.modal.style.display = 'none';
         dom.livesInput.value = '';
