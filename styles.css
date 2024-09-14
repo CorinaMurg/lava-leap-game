@@ -2,7 +2,7 @@
     --clr-blue: rgb(52,166,251);
     --clr-blue: #023047;
     --clr-lava: #bb3e03;
-    --clr-dead: rgb(160, 64, 64);
+    --clr-lost: #decaca;
     --clr-gray: rgb(64, 64, 64);
     --clr-green: #069306;
     --clr-wall: rgb(210, 206, 206);
@@ -68,7 +68,12 @@ main {
 }
 
 .lost .player {
-    background: var(--clr-gray);
+    background: black;
+    /* box-shadow: 
+        0 -4px 4px black,
+        -4px 0 4px black, 
+        4px 0 4px black;  */
+    /* opacity: 0.8; */
 }
 
 .won .player {
