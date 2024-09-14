@@ -4,12 +4,13 @@
     --clr-lava: #bb3e03;
     --clr-lost: #decaca;
     --clr-gray: rgb(64, 64, 64);
-    --clr-green: #069306;
+    --clr-green: #07a307;
     --clr-wall: rgb(210, 206, 206);
     --clr-yellow: #fbbc04;
     --clr-red: red;
     --clr-darkRed: rgb(91, 2, 2);
     --clr-endBlue: #329cc3;
+    --clr-dark: black;
 }
 
 body {
@@ -120,16 +121,16 @@ h1 {
 
 #restart-button, #start-button {
     /* display: none; */
-    width: 20rem;
-    padding: 10px;
+    width: 16rem;
+    padding: 9px;
     font-family: "Montserrat", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    background-color: var(--clr-blue);
+    background-color: var(--clr-green);
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    color: var(--clr-yellow);
+    color: var(--clr-dark);
 }
 
 #restart-button {
@@ -143,7 +144,7 @@ h1 {
 }
 
 #start-button {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-inline: auto;
 }
 

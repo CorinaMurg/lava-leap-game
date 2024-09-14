@@ -26,15 +26,28 @@ function welcome() {
 }
 
 function startGame() {
-    initializeGame();
-    runGame(GAME_LEVELS, DOMDisplay);
+    // initializeGame();
+    // runGame(GAME_LEVELS, DOMDisplay);
+    dom.startButton.textContent = "Loading...";
+    dom.startButton.disabled = true;
+    // dom.endMessageOne.style.display = 'none';
+    // dom.endMessageTwo.style.display = 'none';
+    document.body.tabIndex = 0;  
+    document.body.focus(); 
+
+    setTimeout(() => {
+        initializeGame();
+        runGame(GAME_LEVELS, DOMDisplay);
+        dom.startButton.textContent = "Start Game";  
+        dom.startButton.disabled = false;
+    }, 3000);  
 }
 
 function restartGame() {
     dom.restartButton.textContent = "Loading...";
     dom.restartButton.disabled = true;
-    dom.endMessageOne.style.display = 'none';
-    dom.endMessageTwo.style.display = 'none';
+    // dom.endMessageOne.style.display = 'none';
+    // dom.endMessageTwo.style.display = 'none';
     document.body.tabIndex = 0;  
     document.body.focus(); 
 
