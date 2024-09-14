@@ -35,8 +35,9 @@ I am a self-taught developer focused on frontend and accessibility. For the long
 This project began as a direct application from the "Eloquent JavaScript" book, which I then adapted to improve functionality and user experience:
 
 - used modules to restructure the codebase 
-- added intro page with option to input number of lives
-- option to adjust the number of lives in the url
+- added intro page with option to input number of lives via a modal
+- created a Modal class to manage event listeners related to the modal's functionality
+- added option to adjust the number of lives in the url
 - added a start button, end-game messages, and a restart button
 - upgraded the color theme for better accessibility
 - made game stats (level number, coins collected and coins remaining) available during play
