@@ -28,7 +28,6 @@ function openModal() {
             dom.modalOverlay.style.display = 'flex';
             dom.modal.style.display = 'flex';
         } else {
-
             dom.welcomeLivesNumber.textContent = lives;
             dom.livesContainer.textContent = lives; 
 
