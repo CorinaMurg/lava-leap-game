@@ -26,12 +26,8 @@ function welcome() {
 }
 
 function startGame() {
-    // initializeGame();
-    // runGame(GAME_LEVELS, DOMDisplay);
     dom.startButton.textContent = "Loading...";
     dom.startButton.disabled = true;
-    // dom.endMessageOne.style.display = 'none';
-    // dom.endMessageTwo.style.display = 'none';
     document.body.tabIndex = 0;  
     document.body.focus(); 
 
@@ -46,8 +42,8 @@ function startGame() {
 function restartGame() {
     dom.restartButton.textContent = "Loading...";
     dom.restartButton.disabled = true;
-    // dom.endMessageOne.style.display = 'none';
-    // dom.endMessageTwo.style.display = 'none';
+    dom.endMessageOne.style.display = 'none';
+    dom.endMessageTwo.style.display = 'none';
     document.body.tabIndex = 0;  
     document.body.focus(); 
 
@@ -70,7 +66,6 @@ function initializeGame() {
 }
 
 async function runGame(plans, Display) {
-    // initializeGame();
     const updateLivesDisplay = () => {
         dom.livesContainer.textContent = `${lives}`;
     };
