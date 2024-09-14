@@ -4,6 +4,11 @@ import { arrowKeys } from './utils/arrowKeys.js';
 import { parseURLQuery } from './utils/parseURLQuery.js';
 import { GAME_LEVELS } from './levels.js';
 import { dom } from './domElements.js';
+import { displayWelcome } from './displayFunctions/displayWelcome.js';
+import { displayStartLoading } from './displayFunctions/displayStartLoading.js';
+import { displayRestartLoading } from './displayFunctions/displayRestartLoading.js';
+import { displayStatsContainer } from './displayFunctions/displayStatsContainer.js';
+import { displayEndContainer, lossEndMessages, winEndMessages } from './displayFunctions/displayEndContainer.js';
 import { launchConfetti } from './utils/launchConfetti.js';
 
 let userLives;
@@ -19,34 +24,21 @@ function welcome() {
 
     updateLivesDisplay();
 
-    dom.gameStartContainer.style.display = 'flex';
-    dom.startButton.style.display = 'block';
-    dom.gameEndContainer.style.display = 'none';
-    dom.gameStatsContainer.style.display = "none";  
+    displayWelcome();
 }
 
-function startGame() {
-    dom.startButton.textContent = "Loading...";
-    dom.startButton.disabled = true;
-    document.body.tabIndex = 0;  
-    document.body.focus(); 
-
+function startGame() {  
+    displayStartLoading();
     setTimeout(() => {
         initializeGame();
         runGame(GAME_LEVELS, DOMDisplay);
         dom.startButton.textContent = "Start Game";  
         dom.startButton.disabled = false;
-    }, 3000);  
+    }, 2000);  
 }
 
 function restartGame() {
-    dom.restartButton.textContent = "Loading...";
-    dom.restartButton.disabled = true;
-    dom.endMessageOne.style.display = 'none';
-    dom.endMessageTwo.style.display = 'none';
-    document.body.tabIndex = 0;  
-    document.body.focus(); 
-
+    displayRestartLoading();
     setTimeout(() => {
         initializeGame();
         runGame(GAME_LEVELS, DOMDisplay);
@@ -60,9 +52,7 @@ function initializeGame() {
     userLives = parseURLQuery(window.location.search);
     lives = Number(userLives.lives) || 3; 
 
-    dom.gameStartContainer.style.display = 'none';
-    dom.gameEndContainer.style.display = 'none';
-    dom.gameStatsContainer.style.display = "block";  
+    displayStatsContainer();
 }
 
 async function runGame(plans, Display) {
@@ -80,6 +70,7 @@ async function runGame(plans, Display) {
 
     for (let level = 0; level < plans.length && lives > 0;) {
         let currentLevel = new Level(plans[level]);
+
         // coinsRemaining is updated from level; coinsCollected is initialized at 0;
         initializeCoinDisplays(currentLevel); 
 
@@ -97,20 +88,13 @@ async function runGame(plans, Display) {
         }
     }
 
-    dom.gameStartContainer.style.display = 'none';
-    dom.gameEndContainer.style.display = 'block';
-    dom.endMessageOne.style.display = 'block';
-    dom.endMessageTwo.style.display = 'block';
-    dom.restartButton.style.display = 'block';
-    dom.gameStatsContainer.style.display = "none";
+    displayEndContainer();
 
     if (lives === 0) {
-        dom.endMessageOne.textContent = "Sorry ☹️,";
-        dom.endMessageTwo.textContent = "you lost all your lives.";
+        lossEndMessages();
+        
     } else {
-        dom.endMessageOne.textContent = "Congratulations! 🚀";
-        dom.endMessageTwo.textContent = "You won!";
-        launchConfetti();
+        winEndMessages();
     }
 }
 
