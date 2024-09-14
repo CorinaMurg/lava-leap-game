@@ -1,17 +1,16 @@
-import { welcome } from './src/gameLogic.js';
-import { startGame } from './src/gameLogic.js';
-import { restartGame } from './src/gameLogic.js';
+import { welcome, startGame, restartGame } from './src/gameLogic.js';
 import { dom } from './src/domElements.js';
-import { openModal } from './src/modal.js';
+import { Modal } from './src/modal.js'; 
 import { useDefaultLivesInURL } from './src/utils/useDefaultLivesInURL.js';
 
-welcome();
+welcome(); 
 
-document.addEventListener('DOMContentLoaded', useDefaultLivesInURL);
+document.addEventListener('DOMContentLoaded', function() {
+    useDefaultLivesInURL();
+    new Modal(dom);
 
-document.addEventListener('DOMContentLoaded', openModal());
+    dom.startButton.addEventListener('click', startGame);
+    dom.restartButton.addEventListener('click', restartGame);
+});
 
 
-dom.startButton.addEventListener('click', startGame);
-
-dom.restartButton.addEventListener('click', restartGame);
