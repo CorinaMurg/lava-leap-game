@@ -101,10 +101,13 @@ async function runGame(plans, Display) {
 function runLevel(level, Display) {
     let display = new Display(document.body, level);
     let state = State.start(level);
+
+    arrowKeys.enable();
+
     let ending = 1;
     return new Promise(resolve => {
       runAnimation(time => {
-        state = state.update(time, arrowKeys);
+        state = state.update(time, arrowKeys.keys);
 
         updateCoinsCollectedDisplay(state.collectedCoins);  
         updateCoinsRemainingDisplay(level.remainingCoins);  
@@ -118,6 +121,7 @@ function runLevel(level, Display) {
             return true;
         } else {
             display.clear();
+            arrowKeys.disable();
             resolve(state.status);
             return false;
         }

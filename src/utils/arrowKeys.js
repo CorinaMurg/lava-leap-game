@@ -7,9 +7,17 @@ function trackKeys(keys) {
             event.preventDefault();
         }
     }
-    window.addEventListener("keydown", track);
-    window.addEventListener("keyup", track);
-    return down;
+    return {
+        enable: () => {
+            window.addEventListener("keydown", track);
+            window.addEventListener("keyup", track);
+        },
+        disable: () => {
+            window.removeEventListener("keydown", track);
+            window.removeEventListener("keyup", track);
+        },
+        keys: down
+    };
   }
   
 const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp", "w", "a", "s", "d"]);
