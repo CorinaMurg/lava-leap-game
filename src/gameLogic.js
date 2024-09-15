@@ -107,7 +107,7 @@ function runLevel(level, Display) {
     let ending = 1;
     return new Promise(resolve => {
       runAnimation(time => {
-        state = state.update(time, arrowKeys.keys);
+        state = state.update(time, arrowKeys.keyDown);
 
         updateCoinsCollectedDisplay(state.collectedCoins);  
         updateCoinsRemainingDisplay(level.remainingCoins);  

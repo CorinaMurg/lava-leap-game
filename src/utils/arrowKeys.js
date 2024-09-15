@@ -1,25 +1,29 @@
-function trackKeys(keys) {
-    let down = Object.create(null);
-    function track(event) {
-        if (keys.includes(event.key)) {
-            down[event.key] = event.type == "keydown";
+class KeyTracker {
+    constructor(keys) {
+        this.keys = keys;
+        this.keyDown = Object.create(null);
+        // this.listen = this.listen.bind(this);
+    }
 
+    listen = (event) => {
+        if (this.keys.includes(event.key)) {
+            this.keyDown[event.key] = event.type === "keydown";
             event.preventDefault();
         }
     }
-    return {
-        enable: () => {
-            window.addEventListener("keydown", track);
-            window.addEventListener("keyup", track);
-        },
-        disable: () => {
-            window.removeEventListener("keydown", track);
-            window.removeEventListener("keyup", track);
-        },
-        keys: down
-    };
-  }
+
+    enable() {
+        window.addEventListener("keydown", this.listen);
+        window.addEventListener("keyup", this.listen);
+    }
+
+    disable() {
+        window.removeEventListener("keydown", this.listen);
+        window.removeEventListener("keyup", this.listen);
+    }
+}
+
   
-const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp", "w", "a", "s", "d"]);
+const arrowKeys = new KeyTracker(["ArrowLeft", "ArrowRight", "ArrowUp", "w", "a", "s", "d"]);
 
 export { arrowKeys };
