@@ -8,7 +8,7 @@ class Level {
     
         this.grid = grid.map((row, y) => {
             return row.map((ch, x) => {
-                let type = levelChars[ch];
+                let type = charTypes[ch];
                 if (typeof type === "string") return type;
                 this.startActors.push( type.create(new Vector(x, y), ch));
                 return "empty";
@@ -114,8 +114,8 @@ Level.prototype.touches = function(pos, size, type) {
     for (let y = yStart; y < yEnd; y++) {
       for (let x = xStart; x < xEnd; x++) {
         let isOutside = x < 0 || x >= this.width || y < 0 || y >= this.height;
-        let here = isOutside ? "wall" : this.grid[y][x];
-        if (here === type) return true;
+        let typeHere = isOutside ? "wall" : this.grid[y][x];
+        if (typeHere === type) return true;
       }
     }
     return false;
@@ -208,7 +208,7 @@ Player.prototype.update = function(time, state, keys) {
     return new Player(pos, new Vector(xSpeed, ySpeed));
 };
 
-const levelChars = {
+const charTypes = {
     ".": "empty", 
     "#": "wall", 
     "+": "lava",
