@@ -3,7 +3,9 @@ import { updateURLWithLives } from './utils/updateURLWithLives.js';
 class Modal {
     constructor(dom) {
         this.dom = dom;
+        this.trapFocus = this.trapFocus.bind(this);
         this.setupEventListeners();
+        
     }
 
     open() {
@@ -37,6 +39,27 @@ class Modal {
         }
     }
 
+    trapFocus(event) {
+        if (event.key === "Tab") {
+            const focusableElements = this.dom.modal.querySelectorAll('button, input');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+    
+            if (event.shiftKey) { 
+                if (document.activeElement === firstElement) {
+                    lastElement.focus();
+                    event.preventDefault();
+                }
+            } else { 
+                if (document.activeElement === lastElement) {
+                    firstElement.focus();
+                    event.preventDefault();
+                }
+            }
+        }
+    }
+    
+
     setupEventListeners() {
         this.dom.livesButton.addEventListener('click', () => this.open());
         this.dom.modalClose.addEventListener('click', () => this.close());
@@ -44,6 +67,8 @@ class Modal {
             event.preventDefault();
             this.submit();
         });
+
+        this.dom.modal.addEventListener('keydown', this.trapFocus);
 
         window.addEventListener('click', (event) => {
             if (event.target === this.dom.modalOverlay) {
