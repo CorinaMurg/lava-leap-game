@@ -270,7 +270,7 @@ h1 {
 
 @keyframes moveLava {
     0%, 100% { transform: translateX(0); } 
-    50% { transform: translateX(340%); } 
+    50% { transform: translateX(330%); } 
 }
 
 .levels-number {
